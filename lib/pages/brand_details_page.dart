@@ -4,6 +4,7 @@ import 'package:caar/data.dart';
 import 'package:caar/cars/ford_details.dart';
 import 'package:caar/cars/tesla_details.dart';
 import 'package:caar/cars/land_rover_details.dart';
+import 'package:caar/data/car_data.dart';
 
 class BrandDetailsPage extends StatefulWidget {
   final String brandName;
