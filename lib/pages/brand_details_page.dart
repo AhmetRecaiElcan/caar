@@ -5,6 +5,12 @@ import 'package:caar/cars/ford_details.dart';
 import 'package:caar/cars/tesla_details.dart';
 import 'package:caar/cars/land_rover_details.dart';
 import 'package:caar/data/car_data.dart';
+import 'package:caar/cars/byd_dolphin.dart';
+import 'package:caar/cars/alfa_romeo_c4.dart';
+import 'package:caar/cars/land_rover_discovery.dart';
+import 'package:caar/cars/byd_atto_3.dart';
+import 'package:flutter/rendering.dart';
+import 'package:caar/cars/byd_seal_u_ev.dart';
 
 class BrandDetailsPage extends StatefulWidget {
   final String brandName;
@@ -41,8 +47,19 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
       case "tesla":
         return TeslaDetails(car: car);
       case "land rover":
-        print("Opening Land Rover Details"); // Debug için
-        return LandRoverDetails(car: car);
+        return LandRoverDiscoveryDetails(car: car);
+      case "byd":
+        if (car.model == "Dolphin") {
+          return BydDolphinDetails(car: car);
+        } else if (car.model == "Atto 3") {
+          return BydAtto3Details(car: car);
+        } else if(car.model == "Seal U Ev") {
+          return BydSealUEvDetails(car: car);
+        }
+        return BydDolphinDetails(car: car); // varsayılan BYD sayfası
+      case "alfa romeo":
+        return AlfaRomeoC4Details(car: car);
+      
       // Diğer markalar için case'ler eklenecek
       default:
         return FordDetails(car: car); // Geçici olarak Ford detaylarını göster

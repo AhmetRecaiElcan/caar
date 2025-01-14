@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:caar/constants.dart';
 import 'package:caar/data/brand_data.dart';
 import 'package:caar/pages/brand_details_page.dart';
 
