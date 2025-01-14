@@ -269,7 +269,7 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "12 Month",
+                  "sınırsız",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
