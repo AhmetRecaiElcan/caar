@@ -11,6 +11,7 @@ import 'package:caar/cars/land_rover_discovery.dart';
 import 'package:caar/cars/byd_atto_3.dart';
 import 'package:flutter/rendering.dart';
 import 'package:caar/cars/byd_seal_u_ev.dart';
+import 'package:caar/cars/byd_seal_u_dm-i.dart';
 
 class BrandDetailsPage extends StatefulWidget {
   final String brandName;
@@ -55,6 +56,8 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
           return BydAtto3Details(car: car);
         } else if(car.model == "Seal U Ev") {
           return BydSealUEvDetails(car: car);
+        } else if(car.model == "Byd Seal U DM-İ") {
+          return BydSealUdmiDetails(car: car);
         }
         return BydDolphinDetails(car: car); // varsayılan BYD sayfası
       case "alfa romeo":
