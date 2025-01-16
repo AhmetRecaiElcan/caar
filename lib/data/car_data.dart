@@ -106,17 +106,6 @@ List<Car> getCarList(){
         "assets/images/byd_14.png",
       ],
     ),
-     Car(
-      "Byd",
-      "Byd Seal Han",
-      4350,
-      "Weekly",
-      [
-        "assets/images/byd_12.png",
-        "assets/images/byd_13.png",
-        "assets/images/byd_14.png",
-      ],
-    ),
     Car(
       "Tesla",
       "Model S",

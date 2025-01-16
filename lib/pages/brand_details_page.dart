@@ -12,6 +12,11 @@ import 'package:caar/cars/byd_atto_3.dart';
 import 'package:flutter/rendering.dart';
 import 'package:caar/cars/byd_seal_u_ev.dart';
 import 'package:caar/cars/byd_seal_u_dm-i.dart';
+import 'package:caar/cars/byd_seal_u_awd.dart';
+import 'package:caar/cars/byd_seal_han.dart';
+
+
+
 
 class BrandDetailsPage extends StatefulWidget {
   final String brandName;
@@ -58,6 +63,10 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
           return BydSealUEvDetails(car: car);
         } else if(car.model == "Byd Seal U DM-İ") {
           return BydSealUdmiDetails(car: car);
+        } else if(car.model == "Byd Seal U AWD") {
+          return BydSealUAwdDetails(car: car);
+        } else if(car.model == "Byd Seal Han") {
+          return BydSealHanDetails(car: car);
         }
         return BydDolphinDetails(car: car); // varsayılan BYD sayfası
       case "alfa romeo":
