@@ -26,7 +26,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Dolphin",
-      3580,
+      1284500,
       "Monthly",
       [
         "assets/images/byd_1.png",
@@ -36,7 +36,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Atto 3",
-      3580,
+      1494500,
       "Monthly",
       [
         "assets/images/byd_2.png",
@@ -46,7 +46,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Seal U Ev",
-      4350,
+      1797000,
       "Weekly",
       [
         "assets/images/byd_4.png",
@@ -56,7 +56,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Byd Seal U DM-İ",
-      4350,
+      1857750,
       "Weekly",
       [
         "assets/images/byd_6.png",
@@ -66,7 +66,7 @@ List<Car> getCarList(){
     ), Car(
       "Byd",
       "Byd Seal U AWD",
-      4350,
+      2453250,
       "Weekly",
       [
         "assets/images/byd_10.png",
@@ -76,7 +76,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Byd Seal Han",
-      4350,
+      3213750,
       "Weekly",
       [
         "assets/images/byd_12.png",

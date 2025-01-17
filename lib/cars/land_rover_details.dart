@@ -239,10 +239,10 @@ class _LandRoverDetailsState extends State<LandRoverDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Color", "Black"),
-                          buildSpecificationCar("Gearbox", "Automatic"),
-                          buildSpecificationCar("Seat", "5"),
-                          buildSpecificationCar("Motor", "3.0L V6"),
+                          buildSpecificationCar("Menzil", "Black"),
+                          buildSpecificationCar("Şanzıman", "Otomatik"),
+                          buildSpecificationCar("Koltuk", "5"),
+                          buildSpecificationCar("Yakıt", "3.0L V6"),
                           buildSpecificationCar("Speed (0-100)", "6.7 sec"),
                           buildSpecificationCar("Top Speed", "209 km/h"),
                         ],
@@ -309,7 +309,7 @@ class _LandRoverDetailsState extends State<LandRoverDetails> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Book this car",
+                    "Ayrıntılar...",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

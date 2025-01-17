@@ -190,18 +190,7 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                               "4.350",
                               true,
                             ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
-                            ),
+                            
                           ],
                         ),
                       ),
@@ -239,12 +228,12 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Color", "Whe"),
-                          buildSpecificationCar("Gearbox", "Automatic"),
-                          buildSpecificationCar("Seat", "4"),
-                          buildSpecificationCar("Motor", "v10 2.0"),
-                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
+                          buildSpecificationCar("Menzil", "521 km"),
+                          buildSpecificationCar("Şanzıman", "Otomatik"),
+                          buildSpecificationCar("Koltuk", "5"),
+                          buildSpecificationCar("Yakıt", "Elektrik"),
+                          buildSpecificationCar("Hız (0-100)", "3.9 sec"),
+                          buildSpecificationCar("Maks Hız", "180 km"),
                         ],
                       ),
                     ),
@@ -268,19 +257,12 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "12 Month",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
-                ),
+               
                 SizedBox(height: 4),
                 Row(
                   children: [
                     Text(
-                      "USD 4,350",
+                      "TR 3.213.750",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -288,13 +270,7 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                       ),
                     ),
                     SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
+                    
                   ],
                 ),
               ],
@@ -309,7 +285,7 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Book this car",
+                    "Ayrıntılar...",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

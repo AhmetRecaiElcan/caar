@@ -120,7 +120,7 @@ class _AllCarsGridState extends State<AllCarsGrid> {
                                 ],
                               ),
                               Text(
-                                "${brands[index].productCount} products",
+                                "${brands[index].productCount} Araç",
                                 style: TextStyle(
                                   color: Colors.grey[600],
                                   fontSize: 12,

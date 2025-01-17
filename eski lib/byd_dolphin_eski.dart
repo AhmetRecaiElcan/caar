@@ -186,12 +186,22 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             buildPricePerPeriod(
-                              "Tek Paket", //sonra düzeltilecek
+                              "2",
                               "4.3",
                               true,
                             ),
-                            
-                           
+                            SizedBox(width: 16),
+                            buildPricePerPeriod(
+                              "6",
+                              "4.800",
+                              false,
+                            ),
+                            SizedBox(width: 16),
+                            buildPricePerPeriod(
+                              "1",
+                              "5.10",
+                              false,
+                            ),
                           ],
                         ),
                       ),
@@ -229,12 +239,12 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Menzil", "427 km"),
-                          buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "4"),
-                          buildSpecificationCar("Yakıt", "Elektrik"),
-                          buildSpecificationCar("Hız (0-100)", "7 saniye"),
-                          
+                          buildSpecificationCar("Color", "Whe"),
+                          buildSpecificationCar("Gearbox", "Automatic"),
+                          buildSpecificationCar("Seat", "4"),
+                          buildSpecificationCar("Motor", "v10 2.0"),
+                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
+                          buildSpecificationCar("Top Speed", "121 mph"),
                         ],
                       ),
                     ),
@@ -258,11 +268,19 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text(
+                  "12 Month",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
                 SizedBox(height: 4),
                 Row(
                   children: [
                     Text(
-                      "TR 1.284.500",
+                      "USD 4,350",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -270,6 +288,13 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
                       ),
                     ),
                     SizedBox(width: 8),
+                    Text(
+                      "per month",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -284,7 +309,7 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Ayrıntılar...", //buttona tıklandığı zaman url açılacak
+                    "Book this car",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

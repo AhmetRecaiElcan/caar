@@ -197,7 +197,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        "\$${brandCars[index].price}",
+                        "\₺${brandCars[index].price}",
                         style: TextStyle(
                           color: kPrimaryColor,
                           fontSize: 16,

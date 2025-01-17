@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class BydAtto3Details extends StatefulWidget {
   final Car car;
@@ -190,18 +192,6 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
                               "4.0",
                               true,
                             ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
-                            ),
                           ],
                         ),
                       ),
@@ -239,12 +229,12 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Color", "Whe"),
-                          buildSpecificationCar("Gearbox", "Automatic"),
-                          buildSpecificationCar("Seat", "4"),
-                          buildSpecificationCar("Motor", "v10 2.0"),
+                          buildSpecificationCar("Menzil", "420 km"),
+                          buildSpecificationCar("Şanzıman", "Otomatik"),
+                          buildSpecificationCar("Koltuk", "5"),
+                          buildSpecificationCar("Yakıt", "Elektrik"),
                           buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
+                          buildSpecificationCar("Max Hız", "160 mph"),//sonra dönülecek
                         ],
                       ),
                     ),
@@ -269,7 +259,7 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "sınırsız",
+                  "Fiyat",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -280,7 +270,7 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
                 Row(
                   children: [
                     Text(
-                      "USD 4,000",
+                      "TR 1.494.500",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -288,37 +278,12 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
                       ),
                     ),
                     SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
+                    
                   ],
                 ),
               ],
             ),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  child: Text(
-                    "Book this car",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+
           ],
         ),
       ),

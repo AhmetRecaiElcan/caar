@@ -239,10 +239,10 @@ class _TeslaDetailsState extends State<TeslaDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Color", "White"),
-                          buildSpecificationCar("Gearbox", "Automatic"),
-                          buildSpecificationCar("Seat", "4"),
-                          buildSpecificationCar("Motor", "v10 2.0"),
+                          buildSpecificationCar("Menzil", "White"),
+                          buildSpecificationCar("Şanzıman", "Otomatik"),
+                          buildSpecificationCar("Koltuk", "4"),
+                          buildSpecificationCar("Yakıt", "v10 2.0"),
                           buildSpecificationCar("Speed (0-100)", "3.2 sec"),
                           buildSpecificationCar("Top Speed", "121 mph"),
                         ],
@@ -309,7 +309,7 @@ class _TeslaDetailsState extends State<TeslaDetails> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Book this car",
+                    "Ayrıntılar...",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

@@ -239,10 +239,10 @@ class _FordDetailsState extends State<FordDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Color", "Whe"),
-                          buildSpecificationCar("Gearbox", "Automatic"),
-                          buildSpecificationCar("Seat", "4"),
-                          buildSpecificationCar("Motor", "v10 2.0"),
+                          buildSpecificationCar("Menzil", "Whe"),
+                          buildSpecificationCar("Şanzıman", "Otomatik"),
+                          buildSpecificationCar("Koltuk", "4"),
+                          buildSpecificationCar("Yakıt", "v10 2.0"),
                           buildSpecificationCar("Speed (0-100)", "3.2 sec"),
                           buildSpecificationCar("Top Speed", "121 mph"),
                         ],
@@ -309,7 +309,7 @@ class _FordDetailsState extends State<FordDetails> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Book this car",
+                    "Ayrıntılar...",
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
