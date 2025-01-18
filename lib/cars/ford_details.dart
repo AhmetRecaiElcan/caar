@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
+import 'webview_screen.dart';
 
 class FordDetails extends StatefulWidget {
   final Car car;
@@ -299,26 +300,36 @@ class _FordDetailsState extends State<FordDetails> {
                 ),
               ],
             ),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  child: Text(
-                    "Ayrıntılar...",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ),
+             Container(
+  height: 50,
+  decoration: BoxDecoration(
+    color: kPrimaryColor,
+    borderRadius: BorderRadius.circular(15),
+  ),
+  child: Center(
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/dolphin'),
             ),
+          );
+        },
+        child: Text(
+          "Ayrıntılar...",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    ),
+  ),
+),
           ],
         ),
       ),

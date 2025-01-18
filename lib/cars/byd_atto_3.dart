@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:webview_flutter/webview_flutter.dart';
+import 'webview_screen.dart';
 
 class BydAtto3Details extends StatefulWidget {
   final Car car;
@@ -283,7 +284,36 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
                 ),
               ],
             ),
-
+             Container(
+  height: 50,
+  decoration: BoxDecoration(
+    color: kPrimaryColor,
+    borderRadius: BorderRadius.circular(15),
+  ),
+  child: Center(
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/atto3'),
+            ),
+          );
+        },
+        child: Text(
+          "Ayrıntılar...",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    ),
+  ),
+),
           ],
         ),
       ),
