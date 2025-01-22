@@ -110,8 +110,8 @@ List<Car> getCarList(){
       4350,
       "Weekly",
       [
-        "assets/images/honda4.png",
-        "assets/images/honda5.png",
+        "assets/images/honda_4.png",
+        "assets/images/honda_5.png",
       ],
     ),
     Car(
@@ -164,9 +164,9 @@ List<Car> getCarList(){
       4350,
       "Weekly",
       [
-        "assets/images/honda_type_r0.png",
-        "assets/images/honda_type_r1.png",
-        "assets/images/honda_type_r2.png",
+        "assets/images/honda_typer0.png",
+        "assets/images/honda_typer1.png",
+        "assets/images/honda_typer2.png",
       ],
     ),
     // ... diğer arabaların listesi buraya taşınacak ...

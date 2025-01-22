@@ -130,7 +130,7 @@ List<Brand> getBrandList() {
     Brand(
       name: "Honda",
       image: "assets/images/honda.png",
-      productCount: 88,
+      productCount: 7,
       isVerified: false
     ),
     Brand(
