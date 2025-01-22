@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:caar/data/brand_data.dart';
-import 'package:caar/data/car_data.dart';
+
 
 
 class NavigationItem {
