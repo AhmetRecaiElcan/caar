@@ -84,7 +84,16 @@ List<Car> getCarList(){
         "assets/images/byd_14.png",
       ],
     ),
-     Car(
+    Car(
+      "Tesla",
+      "Model S",
+      4350,
+      "Weekly",
+      [
+        "assets/images/tesla_model_s_0.png",
+      ],
+    ),
+    Car(
       "Honda",
       "CR-V E:HEV",
       4350,
@@ -95,24 +104,69 @@ List<Car> getCarList(){
         "assets/images/honda_3.png",
       ],
     ),
-     Car(
+    Car(
       "Honda",
        "ZR-V E:HEV",
       4350,
       "Weekly",
       [
-        "assets/images/byd_12.png",
-        "assets/images/byd_13.png",
-        "assets/images/byd_14.png",
+        "assets/images/honda4.png",
+        "assets/images/honda5.png",
       ],
     ),
     Car(
-      "Tesla",
-      "Model S",
+      "Honda",
+       "HR-V E:HEV",
       4350,
       "Weekly",
       [
-        "assets/images/tesla_model_s_0.png",
+        "assets/images/honda_hrv0.png",
+        "assets/images/honda_hrv1.png",
+        "assets/images/honda_hrv2.png",
+      ],
+    ),
+    Car(
+      "Honda",
+       "JAZZ E:HEV",
+      4350,
+      "Weekly",
+      [
+        "assets/images/honda_jazz0.png",
+        "assets/images/honda_jazz1.png",
+        "assets/images/honda_jazz2.png",
+      ],
+    ),
+    Car(
+      "Honda",
+       "Civic",
+      4350,
+      "Weekly",
+      [
+        "assets/images/honda_civic0.png",
+        "assets/images/honda_civic1.png",
+        "assets/images/honda_civic2.png",
+      ],
+    ),
+    Car(
+      "Honda",
+       "City",
+      4350,
+      "Weekly",
+      [
+        "assets/images/honda_city0.png",
+        "assets/images/honda_city1.png",
+        "assets/images/honda_city2.png",
+      ],
+    ),
+    Car(
+      "Honda",
+      "Type R",
+      4350,
+      "Weekly",
+      [
+        "assets/images/honda_type_r0.png",
+        "assets/images/honda_type_r1.png",
+        "assets/images/honda_type_r2.png",
       ],
     ),
     // ... diğer arabaların listesi buraya taşınacak ...
