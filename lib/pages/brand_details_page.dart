@@ -1,3 +1,4 @@
+import 'package:caar/cars/honda_city.dart';
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
@@ -12,6 +13,10 @@ import 'package:caar/cars/byd_seal_u_ev.dart';
 import 'package:caar/cars/byd_seal_u_dm-i.dart';
 import 'package:caar/cars/byd_seal_u_awd.dart';
 import 'package:caar/cars/byd_seal_han.dart';
+import 'package:caar/cars/honda_civic.dart';
+import 'package:caar/cars/honda_crv_ehev.dart';
+import 'package:caar/cars/honda_hrv_ehev.dart';
+
 
 
 
@@ -52,6 +57,17 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         return TeslaDetails(car: car);
       case "land rover":
         return LandRoverDiscoveryDetails(car: car);
+      case "honda":
+        if (car.model == "City") {
+          return HondaCityDetails(car: car);
+        } else if (car.model == "Civic") {
+          return HondaCivicDetails(car: car);
+        } else if (car.model == "CR-V E:HEV") {
+          return HondaCrvEhevDetails(car: car);
+        } else if (car.model == "HR-V E:HEV") {
+          return HondaHrvEhevDetails(car: car);
+        }
+        return HondaCityDetails(car: car); // varsayılan Honda City sayfası
       case "byd":
         if (car.model == "Dolphin") {
           return BydDolphinDetails(car: car);
@@ -66,7 +82,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         } else if(car.model == "Byd Seal Han") {
           return BydSealHanDetails(car: car);
         }
-        return BydDolphinDetails(car: car); // varsayılan BYD sayfası
+        return BydDolphinDetails(car: car);// varsayılan BYD sayfası
       case "alfa romeo":
         return AlfaRomeoC4Details(car: car);
       
