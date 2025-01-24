@@ -16,6 +16,9 @@ import 'package:caar/cars/byd_seal_han.dart';
 import 'package:caar/cars/honda_civic.dart';
 import 'package:caar/cars/honda_crv_ehev.dart';
 import 'package:caar/cars/honda_hrv_ehev.dart';
+import 'package:caar/cars/honda_jazz_ehev.dart';
+import 'package:caar/cars/honda_typer.dart';
+import 'package:caar/cars/honda_zerv_ehev.dart';
 
 
 
@@ -66,7 +69,15 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
           return HondaCrvEhevDetails(car: car);
         } else if (car.model == "HR-V E:HEV") {
           return HondaHrvEhevDetails(car: car);
+        } else if (car.model == "JAZZ E:HEV") {
+          return HondaJazzEhevDetails(car: car);
+        } else if (car.model == "Type R") {
+          return HondaTyperDetails(car: car);
+        } else if (car.model == "ZR-V E:HEV") {
+          return HondaZervEhevDetails(car: car);
         }
+
+
         return HondaCityDetails(car: car); // varsayılan Honda City sayfası
       case "byd":
         if (car.model == "Dolphin") {

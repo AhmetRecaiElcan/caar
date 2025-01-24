@@ -191,7 +191,18 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                               "4.350",
                               true,
                             ),
-                            
+                            SizedBox(width: 16),
+                            buildPricePerPeriod(
+                              "6",
+                              "4.800",
+                              false,
+                            ),
+                            SizedBox(width: 16),
+                            buildPricePerPeriod(
+                              "1",
+                              "5.100",
+                              false,
+                            ),
                           ],
                         ),
                       ),
@@ -229,12 +240,12 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Menzil", "521 km"),
+                          buildSpecificationCar("Menzil", "Whe"),
                           buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "5"),
-                          buildSpecificationCar("Yakıt", "Elektrik"),
-                          buildSpecificationCar("Hız (0-100)", "3.9 sec"),
-                          buildSpecificationCar("Maks Hız", "180 km"),
+                          buildSpecificationCar("Koltuk", "4"),
+                          buildSpecificationCar("Yakıt", "v10 2.0"),
+                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
+                          buildSpecificationCar("Top Speed", "121 mph"),
                         ],
                       ),
                     ),
@@ -258,12 +269,19 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               
+                Text(
+                  "12 Month",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
                 SizedBox(height: 4),
                 Row(
                   children: [
                     Text(
-                      "TR 3.213.750",
+                      "USD 4,350",
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -271,12 +289,18 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                       ),
                     ),
                     SizedBox(width: 8),
-                    
+                    Text(
+                      "per month",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 14,
+                      ),
+                    ),
                   ],
                 ),
               ],
             ),
-             Container(
+           Container(
   height: 50,
   decoration: BoxDecoration(
     color: kPrimaryColor,
@@ -290,7 +314,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/han'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-cr-v-hibrit'),
             ),
           );
         },
@@ -305,7 +329,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
       ),
     ),
   ),
-),
+)
           ],
         ),
       ),
