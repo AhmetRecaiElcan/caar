@@ -15,7 +15,15 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  List<Widget> buildPageIndicator(){
+  // Özellik kategorileri ve değerleri
+  List<Map<String, String>> currentSpecifications = [
+    {"Şanzıman": "Otomatik"},
+    {"Yakıt": "v10 2.0"},
+    {"Top Speed": "121 mph"}
+  ];
+  String currentPrice = "₺ 4,350";
+
+  List<Widget> buildPageIndicator() {
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -23,7 +31,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
     return list;
   }
 
-  Widget buildIndicator(bool isActive){
+  Widget buildIndicator(bool isActive) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 6),
@@ -79,7 +87,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                   Icons.keyboard_arrow_left,
                                   color: Colors.black,
                                   size: 28,
-                                )
+                                ),
                               ),
                             ),
                             Row(
@@ -97,7 +105,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                     Icons.bookmark_border,
                                     color: Colors.white,
                                     size: 22,
-                                  )
+                                  ),
                                 ),
                                 SizedBox(width: 16),
                                 Container(
@@ -116,7 +124,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                     Icons.share,
                                     color: Colors.black,
                                     size: 22,
-                                  )
+                                  ),
                                 ),
                               ],
                             ),
@@ -151,7 +159,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                         child: Container(
                           child: PageView(
                             physics: BouncingScrollPhysics(),
-                            onPageChanged: (int page){
+                            onPageChanged: (int page) {
                               setState(() {
                                 _currentImage = page;
                               });
@@ -172,36 +180,65 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                         ),
                       ),
                       widget.car.images.length > 1
-                      ? Container(
-                        margin: EdgeInsets.symmetric(vertical: 16),
-                        height: 30,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: buildPageIndicator(),
-                        ),
-                      )
-                      : Container(),
+                          ? Container(
+                              margin: EdgeInsets.symmetric(vertical: 16),
+                              height: 30,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: buildPageIndicator(),
+                              ),
+                            )
+                          : Container(),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            buildPricePerPeriod(
-                              "2",
-                              "4.350",
-                              true,
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  currentSpecifications = [
+                                    {"Şanzıman": "CVT"},
+                                    {"Yakıt": "v12 2.5"},
+                                    {"Top Speed": "140 mph"}
+                                  ];
+                                  currentPrice = "₺ 4,800";
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.black,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(color: borderColor),
+                                ),
+                              ),
+                              child: Text('Executive Plus'),
                             ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  currentSpecifications = [
+                                    {"Şanzıman": "Otomatik"},
+                                    {"Yakıt": "Turbocharged"},
+                                    {"Top Speed": "160 mph"}
+                                  ];
+                                  currentPrice = "₺ 5,200";
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                foregroundColor: Colors.black,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(color: borderColor),
+                                ),
+                              ),
+                              child: Text('Sport Plus'),
                             ),
                           ],
                         ),
@@ -239,14 +276,9 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        children: [
-                          buildSpecificationCar("Menzil", "Whe"),
-                          buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "4"),
-                          buildSpecificationCar("Yakıt", "v10 2.0"),
-                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
-                        ],
+                        children: currentSpecifications
+                            .map((spec) => buildSpecificationCar(spec.keys.first, spec.values.first))
+                            .toList(),
                       ),
                     ),
                   ],
@@ -270,7 +302,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "12 Month",
+                  "Fiyat",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -278,104 +310,47 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                   ),
                 ),
                 SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      "USD 4,350",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                Text(
+                  currentPrice,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
                 ),
               ],
             ),
-           Container(
-  height: 50,
-  decoration: BoxDecoration(
-    color: kPrimaryColor,
-    borderRadius: BorderRadius.circular(15),
-  ),
-  child: Center(
-    child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan'),
-            ),
-          );
-        },
-        child: Text(
-          "Ayrıntılar...",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-        ),
-      ),
-    ),
-  ),
-)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget buildPricePerPeriod(String months, String price, bool selected){
-    return Expanded(
-      child: Container(
-        height: 110,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: selected ? kPrimaryColor : Colors.white,
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          ),
-          border: Border.all(
-            color: borderColor,
-            width: selected ? 0 : 1,
-          ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              months + " Month",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+            Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: kPrimaryColor,
+                borderRadius: BorderRadius.circular(15),
               ),
-            ),
-            Expanded(child: Container()),
-            Text(
-              price,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "USD",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebViewScreen(
+                            url:
+                                'https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan',
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Ayrıntılar...",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
@@ -384,7 +359,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
     );
   }
 
-  Widget buildSpecificationCar(String title, String data){
+  Widget buildSpecificationCar(String title, String value) {
     return Container(
       width: 130,
       decoration: BoxDecoration(
@@ -407,16 +382,18 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
             ),
           ),
           SizedBox(height: 8),
-          Text(
-            data,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
+          Center(
+            child: Text(
+              value,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ],
       ),
     );
   }
-} 
+}
