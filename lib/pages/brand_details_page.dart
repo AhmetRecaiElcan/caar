@@ -39,7 +39,7 @@ class BrandDetailsPage extends StatefulWidget {
 }
 
 class _BrandDetailsPageState extends State<BrandDetailsPage> {
-  bool isListView = true;
+  bool isListView = false;
   late List<Car> brandCars;
 
   @override
@@ -142,19 +142,19 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
             ),
           ],
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              isListView ? Icons.grid_view : Icons.list,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              setState(() {
-                isListView = !isListView;
-              });
-            },
-          ),
-        ],
+         actions: [
+    IconButton(
+      icon: Icon(
+        isListView ? Icons.grid_view : Icons.list,
+        color: Colors.black,
+      ),
+      onPressed: () {
+        setState(() {
+          isListView = !isListView;
+        });
+      },
+    ),
+  ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -300,7 +300,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        "\$${brandCars[index].price}",
+                        "\₺${brandCars[index].price}",
                         style: TextStyle(
                           color: kPrimaryColor,
                           fontSize: 14,
