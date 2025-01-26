@@ -137,7 +137,6 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
               widget.brandName,
               style: TextStyle(
                 color: Colors.black,
-                fontWeight: FontWeight.bold,
               ),
             ),
           ],
