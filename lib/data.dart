@@ -13,7 +13,7 @@ List<NavigationItem> getNavigationItemList(){
   return <NavigationItem>[
     NavigationItem(Icons.home, "Ana Sayfa"),
     NavigationItem(Icons.directions_car, "Markalar"),
-    NavigationItem(Icons.notifications, "Bildirimler"),
+    NavigationItem(Icons.attach_money, "Fiyat Listesi"),
     NavigationItem(Icons.person, "Profil"),
   ];
 }

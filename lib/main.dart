@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:caar/showroom.dart';
 import 'package:caar/all_cars_grid.dart';
 import 'package:caar/data.dart';
+import 'package:caar/prices_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -21,7 +22,7 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _pages = [
     Showroom(isInitialScreen: true),
     AllCarsGrid(),
-    Scaffold(body: Center(child: Text("Bildirimler"))),
+    PricesPage(),  // Replace the placeholder Scaffold with PricesPage
     Scaffold(body: Center(child: Text("Profil"))),
   ];
 
