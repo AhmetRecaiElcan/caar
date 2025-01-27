@@ -3,19 +3,18 @@ import 'package:flutter/material.dart';
 
 
 class NavigationItem {
-
   IconData iconData;
+  String title;
 
-  NavigationItem(this.iconData);
-
+  NavigationItem(this.iconData, this.title);
 }
 
 List<NavigationItem> getNavigationItemList(){
   return <NavigationItem>[
-    NavigationItem(Icons.home),
-    NavigationItem(Icons.calendar_today),
-    NavigationItem(Icons.notifications),
-    NavigationItem(Icons.person),
+    NavigationItem(Icons.home, "Ana Sayfa"),
+    NavigationItem(Icons.directions_car, "Markalar"),
+    NavigationItem(Icons.notifications, "Bildirimler"),
+    NavigationItem(Icons.person, "Profil"),
   ];
 }
 

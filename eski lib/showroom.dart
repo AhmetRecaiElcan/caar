@@ -7,27 +7,27 @@ import 'package:caar/dealer_widget.dart';
 import 'package:caar/available_cars.dart';
 import 'package:caar/cars/land_rover_details.dart';
 import 'package:caar/data/car_data.dart';
-import 'main.dart';
 
 import 'package:flutter/services.dart';
 import 'package:caar/all_cars_grid.dart';
 
 class Showroom extends StatefulWidget {
-  final bool isInitialScreen;
-  
-  Showroom({this.isInitialScreen = false});
-  
   @override
   _ShowroomState createState() => _ShowroomState();
 }
 
 class _ShowroomState extends State<Showroom> {
- 
+  List<NavigationItem> navigationItems = getNavigationItemList();
+  late NavigationItem selectedItem;
 
   List<Car> cars = getCarList();
   List<Dealer> dealers = getDealerList();
 
- 
+  @override
+  void initState() {
+    super.initState();
+    selectedItem = navigationItems[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +37,6 @@ class _ShowroomState extends State<Showroom> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         systemOverlayStyle: SystemUiOverlayStyle.dark,
-        leading: widget.isInitialScreen ? null : GestureDetector(
-          onTap: () => Navigator.pop(context),
-          child: Container(
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-              size: 20,
-            ),
-          ),
-        ),
         title: Text(
           "Car Rental App",
           style: GoogleFonts.mulish(
@@ -270,7 +255,7 @@ class _ShowroomState extends State<Showroom> {
                                   );
                                 },
                                 child: Text(
-                                  "Tümü",
+                                  "tümü",
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
@@ -314,6 +299,20 @@ class _ShowroomState extends State<Showroom> {
 
         ],
       ),
+      bottomNavigationBar: Container(
+        height: 70,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          )
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: buildNavigationItems(),
+        ),
+      ),
     );
   }
 
@@ -343,8 +342,51 @@ class _ShowroomState extends State<Showroom> {
     return list;
   }
 
-  
+  List<Widget> buildNavigationItems(){
+    List<Widget> list = [];
+    for (var navigationItem in navigationItems) {
+      list.add(buildNavigationItem(navigationItem));
+    }
+    return list;
+  }
 
-  
+  Widget buildNavigationItem(NavigationItem item){
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedItem = item;
+        });
+      },
+      child: Container(
+        width: 50,
+        child: Stack(
+          children: <Widget>[
+
+            selectedItem == item 
+            ? Center(
+              child: Container(
+                height: 50,
+                width: 50,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: kPrimaryColorShadow,
+                ),
+              ),
+            )
+            : Container(),
+
+            Center(
+              child: Icon(
+                item.iconData,
+                color: selectedItem == item ? kPrimaryColor : Colors.grey[400],
+                size: 24,
+              ),
+            )
+
+          ],
+        ),
+      ),
+    );
+  }
 
 }

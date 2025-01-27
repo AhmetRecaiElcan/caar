@@ -212,12 +212,6 @@ List<Brand> getBrandList() {
       isVerified: false
     ),
     Brand(
-      name: "Koltuk",
-      image: "assets/images/Koltuk.png",
-      productCount: 88,
-      isVerified: false
-    ),
-    Brand(
       name: "Skoda",
       image: "assets/images/skoda.png",
       productCount: 88,
