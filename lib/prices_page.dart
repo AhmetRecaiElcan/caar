@@ -21,6 +21,7 @@ class _PricesPageState extends State<PricesPage> {
     'Ford': 'https://www.ford.com.tr/fiyat-listesi/otomobil/',
     'BYD': 'https://www.bydauto.com.tr/fiyat-listesi',
     'Fiat': 'https://kampanya.fiat.com.tr/Pdf/Fiyatlar/OtomobilFiyatListesi.pdf',
+    'Dacia' : 'https://cdn.cetas.com.tr/Delivery/Public/File/dacia-Fiyat-Listesi_yeni_5ll3w6psd5.pdf',
     // Add more brand URLs as needed
   };
 
