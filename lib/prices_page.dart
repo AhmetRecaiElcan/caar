@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:caar/data/brand_data.dart';
+import 'package:caar/data/car_urls.dart';
 import 'package:caar/cars/webview_screen.dart';
 import 'package:caar/main.dart';
+import 'package:caar/pages/car_model_prices_page.dart';
 
 class PricesPage extends StatefulWidget {
   @override
@@ -10,20 +12,15 @@ class PricesPage extends StatefulWidget {
 
 class _PricesPageState extends State<PricesPage> {
   List<Brand> brands = getBrandList();
-  
-  // Brand URL mappings
-  final Map<String, String> brandUrls = {
-    'BMW': 'https://www.bmw.com.tr/tr/fastlane/bmw-fiyat-listesi.html',
-    'Mercedes': 'https://fiyat.mercedes-benz.com.tr/one-cikan-modeller',
-    'Audi': 'https://fiyatlistesi.audi.com.tr/',
-    'Toyota': 'https://turkiye.toyota.com.tr/middle/fiyat-listesi/',
-    'Honda': 'https://www.honda.com.tr/otomobil/otomobil-fiyat-listesi-2024',
-    'Ford': 'https://www.ford.com.tr/fiyat-listesi/otomobil/',
-    'BYD': 'https://www.bydauto.com.tr/fiyat-listesi',
-    'Fiat': 'https://kampanya.fiat.com.tr/Pdf/Fiyatlar/OtomobilFiyatListesi.pdf',
-    'Dacia' : 'https://cdn.cetas.com.tr/Delivery/Public/File/dacia-Fiyat-Listesi_yeni_5ll3w6psd5.pdf',
-    // Add more brand URLs as needed
-  };
+
+  void _handleBrandTap(Brand brand) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CarModelPricesPage(brandName: brand.name),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +62,7 @@ class _PricesPageState extends State<PricesPage> {
               itemCount: brands.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {
-                    final url = brandUrls[brands[index].name];
-                    if (url != null) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WebViewScreen(url: url),
-                        ),
-                      );
-                    }
-                  },
+                  onTap: () => _handleBrandTap(brands[index]),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -139,6 +126,71 @@ class _PricesPageState extends State<PricesPage> {
                       ],
                     ),
                   ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ModelSelectionSheet extends StatelessWidget {
+  final String brand;
+  final List<String> models;
+
+  ModelSelectionSheet({required this.brand, required this.models});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            "$brand Modelleri",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 16),
+          Flexible(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: models.length + 1, // +1 for general price list
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return ListTile(
+                    title: Text("Genel Fiyat Listesi"),
+                    onTap: () {
+                      final url = CarUrls.getBrandMainUrl(brand);
+                      if (url != null) {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => WebViewScreen(url: url),
+                          ),
+                        );
+                      }
+                    },
+                  );
+                }
+                final model = models[index - 1];
+                return ListTile(
+                  title: Text(model),
+                  onTap: () {
+                    final url = CarUrls.getModelUrl(brand, model);
+                    if (url != null) {
+                      Navigator.pop(context);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebViewScreen(url: url),
+                        ),
+                      );
+                    }
+                  },
                 );
               },
             ),
