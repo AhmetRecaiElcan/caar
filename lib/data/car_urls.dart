@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'car_data.dart';
 class CarUrls {
   static final Map<String, Map<String, String>> modelUrls = {
     'BMW': {
@@ -18,15 +21,15 @@ class CarUrls {
       'City': 'https://honda.com.tr/city',
       'CR-V': 'https://honda.com.tr/cr-v',
     },
-    'Byd': {
-      'Genel Fiyat Listesi': 'https://www.bydauto.com.tr/fiyat-listesi',
-      'Seal U Ev': 'https://www.bydauto.com.tr/sealu-ev',
-      'Seal U DM-İ': 'https://www.bydauto.com.tr/sealu-dmi',
-      'Seal U AWD': 'https://www.bydauto.com.tr/sealu-awd',
-      'Seal Han': 'https://www.bydauto.com.tr/seal',
-      'Dolphin': 'https://www.bydauto.com.tr/dolphin',
-      'Atto 3': 'https://www.bydauto.com.tr/atto-3',
+    'Byd' : {
+      'Genel Fiyat Listesi':'https://www.bydauto.com.tr/fiyat-listesi',
+      'Atto 3' : 'https://www.bydauto.com.tr/fiyat-listesi',
+      'Seal U Ev' : 'https://www.bydauto.com.tr/fiyat-listesi' ,
+      'Byd Seal U DM-İ' : 'https://www.bydauto.com.tr/fiyat-listesi',
+      'Byd Seal U AWD' : 'https://www.bydauto.com.tr/fiyat-listesi',
+      'Byd Seal Han' : 'https://www.bydauto.com.tr/fiyat-listesi',
     },
+    
     // PDF formatındaki fiyat listeleri
     'Fiat': {
       'Genel Fiyat Listesi': 'https://kampanya.fiat.com.tr/Pdf/Fiyatlar/OtomobilFiyatListesi.pdf',
