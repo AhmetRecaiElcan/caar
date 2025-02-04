@@ -298,7 +298,7 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/atto3'),
+              builder: (context) => WebViewScreen(url: 'https://bydauto.mncdn.com/storage/pdf/teknik/byd-atto3-teknik-brosur.pdf'),
             ),
           );
         },

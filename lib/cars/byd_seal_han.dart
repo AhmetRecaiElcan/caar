@@ -290,7 +290,7 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/han'),
+              builder: (context) => WebViewScreen(url: 'https://bydauto.mncdn.com/storage/pdf/byd-han-teknik-brosur-v2.pdf'),
             ),
           );
         },

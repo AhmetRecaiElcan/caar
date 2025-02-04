@@ -290,7 +290,7 @@ class _BydSealUEvDetailsState extends State<BydSealUEvDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/sealu-ev'),
+              builder: (context) => WebViewScreen(url: 'https://bydauto.mncdn.com/storage/pdf/teknik/byd-seal-u-ev-teknik-brosur.pdf'),
             ),
           );
         },

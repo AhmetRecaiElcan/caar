@@ -290,7 +290,7 @@ class _BydDolphinDetailsState extends State<BydDolphinDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/dolphin'),
+              builder: (context) => WebViewScreen(url: 'https://bydauto.mncdn.com/storage/pdf/teknik/byd-dolphin-teknik-brosur.pdf'),
             ),
           );
         },

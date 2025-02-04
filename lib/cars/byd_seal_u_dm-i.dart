@@ -290,7 +290,7 @@ class _BydSealUdmiDetailsState extends State<BydSealUdmiDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.bydauto.com.tr/sealu-dmi'),
+              builder: (context) => WebViewScreen(url: 'https://bydauto.mncdn.com/storage/pdf/teknik/byd-seal-u-dmi-teknik-brosur.pdf'),
             ),
           );
         },
