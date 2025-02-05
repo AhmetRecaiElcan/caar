@@ -314,7 +314,7 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-type-r'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/d1oBe3RAZK1691138522495.pdf'),
             ),
           );
         },

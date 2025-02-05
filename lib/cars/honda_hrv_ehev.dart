@@ -314,7 +314,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-hr-v-hibrit'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/fBnLIjsxa01724394424143.pdf'),
             ),
           );
         },

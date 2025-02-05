@@ -315,7 +315,7 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-city'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/84gY2t3efQ1678887266500.pdf'),
             ),
           );
         },

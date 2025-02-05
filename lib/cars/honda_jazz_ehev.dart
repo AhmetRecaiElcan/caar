@@ -314,7 +314,7 @@ class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-jazz-hibrit'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/DIPWkUuKxJ1723545467030.pdf'),
             ),
           );
         },

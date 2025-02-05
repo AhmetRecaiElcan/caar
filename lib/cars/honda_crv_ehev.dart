@@ -314,7 +314,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/otomobil/modeller/honda-cr-v-hibrit'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/3KpJAKwUXi1707811565113.pdf'),
             ),
           );
         },

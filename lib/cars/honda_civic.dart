@@ -336,7 +336,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                         MaterialPageRoute(
                           builder: (context) => WebViewScreen(
                             url:
-                                'https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan',
+                                'https://www.honda.com.tr/assets/files/t8DvaNkYg51707483414868.pdf',
                           ),
                         ),
                       );
