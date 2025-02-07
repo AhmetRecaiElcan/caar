@@ -31,6 +31,7 @@ List<Car> getCarList(){
       [
         "assets/images/byd_1.png",
         "assets/images/byd_0.png",
+         "assets/embed/b.glb",
       ],
     ),
     Car(
