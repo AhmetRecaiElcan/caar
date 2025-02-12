@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
+import 'package:caar/data/glb_wiever.dart';
+
 
 class HondaTyperDetails extends StatefulWidget {
   final Car car;
@@ -148,29 +150,33 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                       ),
                       SizedBox(height: 8),
                       Expanded(
-                        child: Container(
-                          child: PageView(
-                            physics: BouncingScrollPhysics(),
-                            onPageChanged: (int page){
-                              setState(() {
-                                _currentImage = page;
-                              });
-                            },
-                            children: widget.car.images.map((path) {
-                              return Container(
-                                padding: EdgeInsets.symmetric(horizontal: 16),
-                                child: Hero(
-                                  tag: widget.car.model,
-                                  child: Image.asset(
-                                    path,
-                                    fit: BoxFit.scaleDown,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                        ),
-                      ),
+  child: Container(
+    child: PageView(
+      physics: BouncingScrollPhysics(),
+      onPageChanged: (int page) {
+        setState(() {
+          _currentImage = page;
+        });
+      },
+      children: widget.car.images.map((path) {
+        if (path.endsWith('.glb')) {
+          return GLBViewer(filePath: path); // GLB model için
+        } else {
+          return Container(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Hero(
+              tag: widget.car.model,
+              child: Image.asset(
+                path,
+                fit: BoxFit.scaleDown,
+              ),
+            ),
+          );
+        }
+      }).toList(),
+    ),
+  ),
+),
                       widget.car.images.length > 1
                       ? Container(
                         margin: EdgeInsets.symmetric(vertical: 16),

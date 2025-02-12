@@ -42,6 +42,7 @@ List<Car> getCarList(){
       [
         "assets/images/byd_2.png",
         "assets/images/byd_3.png",
+        "assets/embed/bydatto.glb",
       ],
     ),
     Car(
@@ -72,6 +73,7 @@ List<Car> getCarList(){
       [
         "assets/images/byd_10.png",
         "assets/images/byd_11.png",
+        "assets/embed/byd_seal_awd.glb",
       ],
     ),
     Car(
@@ -103,6 +105,7 @@ List<Car> getCarList(){
         "assets/images/honda_1.png",
         "assets/images/honda_2.png",
         "assets/images/honda_3.png",
+        "assets/embed/honda_crv.glb",
       ],
     ),
     Car(
@@ -168,6 +171,7 @@ List<Car> getCarList(){
         "assets/images/honda_typer0.png",
         "assets/images/honda_typer1.png",
         "assets/images/honda_typer2.png",
+        "assets/embed/honda_typer.glb",
       ],
     ),
     // ... diğer arabaların listesi buraya taşınacak ...
