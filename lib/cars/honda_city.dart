@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 //
 
 class HondaCityDetails extends StatefulWidget {
@@ -148,7 +149,7 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
                         ),
                       ),
                       SizedBox(height: 8),
-                      Expanded(
+                     Expanded(
                         child: Container(
                           child: PageView(
                             physics: BouncingScrollPhysics(),
@@ -182,31 +183,6 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
                         ),
                       )
                       : Container(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            buildPricePerPeriod(
-                              "2",
-                              "4.350",
-                              true,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -234,19 +210,17 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: 130,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Menzil", "Whe"),
-                          buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "4"),
-                          buildSpecificationCar("Yakıt", "v10 2.0"),
-                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
+                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1,5L VTEC benzin" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "10.5sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "198mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -270,38 +244,26 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "12 Month",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+              Text(
+                "Tavsiye Edilen Fiyat",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
                 ),
-                SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      "USD 4,350",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+              ),
+              SizedBox(height: 4),
+              Text(
+                "1.335.000 ₺",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
                 ),
+              ),
               ],
             ),
-           Container(
+           Container(   
   height: 50,
   decoration: BoxDecoration(
     color: kPrimaryColor,
@@ -337,87 +299,54 @@ class _HondaCityDetailsState extends State<HondaCityDetails> {
     );
   }
 
-  Widget buildPricePerPeriod(String months, String price, bool selected){
-    return Expanded(
-      child: Container(
-        height: 110,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: selected ? kPrimaryColor : Colors.white,
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          ),
-          border: Border.all(
-            color: borderColor,
-            width: selected ? 0 : 1,
+  // Fonksiyon tanımını güncelleyin
+Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
+  return Container(
+    width: 160, // Genişliği artırdık
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(
+        Radius.circular(15),
+      ),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    margin: EdgeInsets.only(right: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        SizedBox(height: 8),
+        Row(
           children: [
-            Text(
-              months + " Month",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+            if (svgPath != null) ...[
+              SvgPicture.asset(
+                svgPath,
+                height: 32,
+                width: 32,
               ),
-            ),
-            Expanded(child: Container()),
-            Text(
-              price,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "USD",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
+              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+            ],
+            Expanded(
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget buildSpecificationCar(String title, String data){
-    return Container(
-      width: 130,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: EdgeInsets.only(right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            data,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-} 
+      ],
+    ),
+  );
+}
+}

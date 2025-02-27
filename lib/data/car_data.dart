@@ -6,7 +6,7 @@ List<Car> getCarList(){
     Car(
       "Land Rover",
       "Discovery",
-      4350,
+      "4350",
       "Weekly",
       [
         "assets/images/land_rover_0.png",
@@ -17,7 +17,7 @@ List<Car> getCarList(){
     Car(
       "Alfa Romeo",
       "C4",
-      3580,
+      "3580",
       "Monthly",
       [
         "assets/images/alfa_romeo_c4_0.png",
@@ -26,7 +26,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Dolphin",
-      1284500,
+      "1.284.500",
       "Monthly",
       [
         "assets/images/byd_1.png",
@@ -37,7 +37,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Atto 3",
-      1494500,
+      "1494500",
       "Monthly",
       [
         "assets/images/byd_2.png",
@@ -48,7 +48,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Seal U Ev",
-      1797000,
+      "1797000",
       "Weekly",
       [
         "assets/images/byd_4.png",
@@ -58,7 +58,7 @@ List<Car> getCarList(){
     Car(
       "Byd",
       "Byd Seal U DM-İ",
-      1857750,
+      "1857750",
       "Weekly",
       [
         "assets/images/byd_6.png",
@@ -68,18 +68,17 @@ List<Car> getCarList(){
     ), Car(
       "Byd",
       "Byd Seal U AWD",
-      2453250,
+      "2453250",
       "Weekly",
       [
         "assets/images/byd_10.png",
         "assets/images/byd_11.png",
-        "assets/embed/byd_seal_awd.glb",
       ],
     ),
     Car(
       "Byd",
       "Byd Seal Han",
-      3213750,
+      "3213750",
       "Weekly",
       [
         "assets/images/byd_12.png",
@@ -90,7 +89,7 @@ List<Car> getCarList(){
     Car(
       "Tesla",
       "Model S",
-      4350,
+      "4350",
       "Weekly",
       [
         "assets/images/tesla_model_s_0.png",
@@ -99,20 +98,19 @@ List<Car> getCarList(){
     Car(
       "Honda",
       "CR-V E:HEV",
-      4151000,
-      "Weekly",
+      "4151000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_1.png",
         "assets/images/honda_2.png",
         "assets/images/honda_3.png",
-        "assets/embed/honda_crv.glb",
       ],
     ),
     Car(
       "Honda",
        "ZR-V E:HEV",
-      4350,
-      "Weekly",
+      "3138000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_4.png",
         "assets/images/honda_5.png",
@@ -121,8 +119,8 @@ List<Car> getCarList(){
     Car(
       "Honda",
        "HR-V E:HEV",
-      4350,
-      "Weekly",
+      "1928000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_hrv0.png",
         "assets/images/honda_hrv1.png",
@@ -132,8 +130,8 @@ List<Car> getCarList(){
     Car(
       "Honda",
        "JAZZ E:HEV",
-      4350,
-      "Weekly",
+      "1413000" ,
+      "3+3 Yıl Garanti ",
       [
         "assets/images/honda_jazz0.png",
         "assets/images/honda_jazz1.png",
@@ -143,8 +141,8 @@ List<Car> getCarList(){
     Car(
       "Honda",
        "Civic",
-      4350,
-      "Weekly",
+      "2040000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_civic0.png",
         "assets/images/honda_civic1.png",
@@ -154,8 +152,8 @@ List<Car> getCarList(){
     Car(
       "Honda",
        "City",
-      4350,
-      "Weekly",
+      "1335000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_city0.png",
         "assets/images/honda_city1.png",
@@ -165,13 +163,12 @@ List<Car> getCarList(){
     Car(
       "Honda",
       "Type R",
-      4350,
-      "Weekly",
+      "4.261.000",
+      "3+3 Yıl Garanti",
       [
         "assets/images/honda_typer0.png",
         "assets/images/honda_typer1.png",
         "assets/images/honda_typer2.png",
-        "assets/embed/honda_typer.glb",
       ],
     ),
     // ... diğer arabaların listesi buraya taşınacak ...

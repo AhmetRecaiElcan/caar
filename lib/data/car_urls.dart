@@ -7,10 +7,10 @@ class CarUrls {
       'Genel Fiyat Listesi': 'https://www.honda.com.tr/otomobil/otomobil-fiyat-listesi-2024',
       'Civic': 'https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan',
       'City': 'https://www.honda.com.tr/otomobil/modeller/honda-city',
-      'Jazz': 'https://www.honda.com.tr/otomobil/modeller/honda-jazz-hibrit',
+      'JAZZ E:HEV': 'https://www.honda.com.tr/otomobil/modeller/honda-jazz-hibrit',
       'HR-V E:HEV': 'https://www.honda.com.tr/otomobil/modeller/honda-hr-v-hibrit',
       'ZR-V E:HEV' : 'https://www.honda.com.tr/otomobil/modeller/honda-zr-v-hibrit',
-      'Civic Type R': 'https://www.honda.com.tr/otomobil/modeller/honda-type-r',
+      'Type R': 'https://www.honda.com.tr/otomobil/modeller/honda-type-r',
       'CR-V E:HEV': 'https://www.honda.com.tr/otomobil/modeller/honda-cr-v-hibrit',
     },
     'Byd' : {

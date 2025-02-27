@@ -3,6 +3,7 @@ import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 
 class HondaTyperDetails extends StatefulWidget {
@@ -17,7 +18,7 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  List<Widget> buildPageIndicator(){
+   List<Widget> buildPageIndicator(){
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -149,34 +150,30 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                         ),
                       ),
                       SizedBox(height: 8),
-                      Expanded(
-  child: Container(
-    child: PageView(
-      physics: BouncingScrollPhysics(),
-      onPageChanged: (int page) {
-        setState(() {
-          _currentImage = page;
-        });
-      },
-      children: widget.car.images.map((path) {
-        if (path.endsWith('.glb')) {
-          return GLBViewer(filePath: path); // GLB model için
-        } else {
-          return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Hero(
-              tag: widget.car.model,
-              child: Image.asset(
-                path,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-          );
-        }
-      }).toList(),
-    ),
-  ),
-),
+                     Expanded(
+                        child: Container(
+                          child: PageView(
+                            physics: BouncingScrollPhysics(),
+                            onPageChanged: (int page){
+                              setState(() {
+                                _currentImage = page;
+                              });
+                            },
+                            children: widget.car.images.map((path) {
+                              return Container(
+                                padding: EdgeInsets.symmetric(horizontal: 16),
+                                child: Hero(
+                                  tag: widget.car.model,
+                                  child: Image.asset(
+                                    path,
+                                    fit: BoxFit.scaleDown,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
                       widget.car.images.length > 1
                       ? Container(
                         margin: EdgeInsets.symmetric(vertical: 16),
@@ -187,31 +184,6 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                         ),
                       )
                       : Container(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            buildPricePerPeriod(
-                              "2",
-                              "4.350",
-                              true,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -239,19 +211,17 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: 130,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Menzil", "Whe"),
-                          buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "4"),
-                          buildSpecificationCar("Yakıt", "v10 2.0"),
-                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
+                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1,5L VTEC benzin" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "10.5sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "198mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -275,38 +245,26 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "12 Month",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+              Text(
+                "Tavsiye Edilen Fiyat",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
                 ),
-                SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      "USD 4,350",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+              ),
+              SizedBox(height: 4),
+              Text(
+                "4.261.000 ₺",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
                 ),
+              ),
               ],
             ),
-           Container(
+           Container(   
   height: 50,
   decoration: BoxDecoration(
     color: kPrimaryColor,
@@ -342,87 +300,54 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
     );
   }
 
-  Widget buildPricePerPeriod(String months, String price, bool selected){
-    return Expanded(
-      child: Container(
-        height: 110,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: selected ? kPrimaryColor : Colors.white,
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          ),
-          border: Border.all(
-            color: borderColor,
-            width: selected ? 0 : 1,
+  // Fonksiyon tanımını güncelleyin
+Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
+  return Container(
+    width: 160, // Genişliği artırdık
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(
+        Radius.circular(15),
+      ),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    margin: EdgeInsets.only(right: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        SizedBox(height: 8),
+        Row(
           children: [
-            Text(
-              months + " Month",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+            if (svgPath != null) ...[
+              SvgPicture.asset(
+                svgPath,
+                height: 32,
+                width: 32,
               ),
-            ),
-            Expanded(child: Container()),
-            Text(
-              price,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "USD",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
+              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+            ],
+            Expanded(
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget buildSpecificationCar(String title, String data){
-    return Container(
-      width: 130,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: EdgeInsets.only(right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            data,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-} 
+      ],
+    ),
+  );
+}
+}

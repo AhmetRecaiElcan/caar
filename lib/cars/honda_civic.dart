@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HondaCivicDetails extends StatefulWidget {
   final Car car;
@@ -15,15 +16,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  // Özellik kategorileri ve değerleri
-  List<Map<String, String>> currentSpecifications = [
-    {"Şanzıman": "Otomatik"},
-    {"Yakıt": "v10 2.0"},
-    {"Top Speed": "121 mph"}
-  ];
-  String currentPrice = "₺ 4,350";
-
-  List<Widget> buildPageIndicator() {
+  List<Widget> buildPageIndicator(){
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -31,7 +24,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
     return list;
   }
 
-  Widget buildIndicator(bool isActive) {
+  Widget buildIndicator(bool isActive){
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 6),
@@ -87,7 +80,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                   Icons.keyboard_arrow_left,
                                   color: Colors.black,
                                   size: 28,
-                                ),
+                                )
                               ),
                             ),
                             Row(
@@ -105,7 +98,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                     Icons.bookmark_border,
                                     color: Colors.white,
                                     size: 22,
-                                  ),
+                                  )
                                 ),
                                 SizedBox(width: 16),
                                 Container(
@@ -124,7 +117,7 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                                     Icons.share,
                                     color: Colors.black,
                                     size: 22,
-                                  ),
+                                  )
                                 ),
                               ],
                             ),
@@ -155,11 +148,11 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                         ),
                       ),
                       SizedBox(height: 8),
-                      Expanded(
+                     Expanded(
                         child: Container(
                           child: PageView(
                             physics: BouncingScrollPhysics(),
-                            onPageChanged: (int page) {
+                            onPageChanged: (int page){
                               setState(() {
                                 _currentImage = page;
                               });
@@ -180,69 +173,15 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                         ),
                       ),
                       widget.car.images.length > 1
-                          ? Container(
-                              margin: EdgeInsets.symmetric(vertical: 16),
-                              height: 30,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: buildPageIndicator(),
-                              ),
-                            )
-                          : Container(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                      ? Container(
+                        margin: EdgeInsets.symmetric(vertical: 16),
+                        height: 30,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  currentSpecifications = [
-                                    {"Şanzıman": "CVT"},
-                                    {"Yakıt": "v12 2.5"},
-                                    {"Top Speed": "140 mph"}
-                                  ];
-                                  currentPrice = "₺ 4,800";
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(color: borderColor),
-                                ),
-                              ),
-                              child: Text('Executive Plus'),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  currentSpecifications = [
-                                    {"Şanzıman": "Otomatik"},
-                                    {"Yakıt": "Turbocharged"},
-                                    {"Top Speed": "160 mph"}
-                                  ];
-                                  currentPrice = "₺ 5,200";
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(color: borderColor),
-                                ),
-                              ),
-                              child: Text('Sport Plus'),
-                            ),
-                          ],
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: buildPageIndicator(),
                         ),
-                      ),
+                      )
+                      : Container(),
                     ],
                   ),
                 ),
@@ -270,15 +209,18 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: 130,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        children: currentSpecifications
-                            .map((spec) => buildSpecificationCar(spec.keys.first, spec.values.first))
-                            .toList(),
+                        children: [
+                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1,5L VTEC Turbo benzin" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "8.1 sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "200mph","assets/svg/makshız.svg"),
+                        ],
                       ),
                     ),
                   ],
@@ -301,99 +243,109 @@ class _HondaCivicDetailsState extends State<HondaCivicDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "Fiyat",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+              Text(
+                "Tavsiye Edilen Fiyat",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
                 ),
-                SizedBox(height: 4),
-                Text(
-                  currentPrice,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 22,
-                  ),
+              ),
+              SizedBox(height: 4),
+              Text(
+                "2.040.000 ₺",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
                 ),
+              ),
               ],
             ),
-            Container(
-              height: 50,
-              decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => WebViewScreen(
-                            url:
-                                'https://www.honda.com.tr/assets/files/t8DvaNkYg51707483414868.pdf',
-                          ),
-                        ),
-                      );
-                    },
-                    child: Text(
-                      "Ayrıntılar...",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+           Container(   
+  height: 50,
+  decoration: BoxDecoration(
+    color: kPrimaryColor,
+    borderRadius: BorderRadius.circular(15),
+  ),
+  child: Center(
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/H2HL57YXKI1707483410366.pdf'),
             ),
+          );
+        },
+        child: Text(
+          "Ayrıntılar...",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    ),
+  ),
+)
           ],
         ),
       ),
     );
   }
 
-  Widget buildSpecificationCar(String title, String value) {
-    return Container(
-      width: 130,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
+  // Fonksiyon tanımını güncelleyin
+Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
+  return Container(
+    width: 160, // Genişliği artırdık
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(
+        Radius.circular(15),
       ),
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: EdgeInsets.only(right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    margin: EdgeInsets.only(right: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
           ),
-          SizedBox(height: 8),
-          Center(
-            child: Text(
-              value,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+        ),
+        SizedBox(height: 8),
+        Row(
+          children: [
+            if (svgPath != null) ...[
+              SvgPicture.asset(
+                svgPath,
+                height: 32,
+                width: 32,
+              ),
+              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+            ],
+            Expanded(
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
+          ],
+        ),
+      ],
+    ),
+  );
+}
 }

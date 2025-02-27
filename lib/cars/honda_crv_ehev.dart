@@ -3,6 +3,7 @@ import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HondaCrvEhevDetails extends StatefulWidget {
   final Car car;
@@ -209,17 +210,17 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: 90,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Yakıt Sistemi", "PGM-FI"),
-                          buildSpecificationCar("Motor", "2.0L Hibrit"),
-                          buildSpecificationCar("Speed (0-100)", "9.5 sn"),
-                          buildSpecificationCar("Maksimum Hız ", "187 km/s"),
+                          buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "2.0 Hibrit" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "9.5 sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "187mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -298,87 +299,54 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
     );
   }
 
-  Widget buildPricePerPeriod(String months, String price, bool selected){
-    return Expanded(
-      child: Container(
-        height: 110,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: selected ? kPrimaryColor : Colors.white,
-          borderRadius: BorderRadius.all(
-            Radius.circular(15),
-          ),
-          border: Border.all(
-            color: borderColor,
-            width: selected ? 0 : 1,
+  // Fonksiyon tanımını güncelleyin
+Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
+  return Container(
+    width: 160, // Genişliği artırdık
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(
+        Radius.circular(15),
+      ),
+    ),
+    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    margin: EdgeInsets.only(right: 16),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 14,
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        SizedBox(height: 8),
+        Row(
           children: [
-            Text(
-              months + " Month",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
+            if (svgPath != null) ...[
+              SvgPicture.asset(
+                svgPath,
+                height: 32,
+                width: 32,
               ),
-            ),
-            Expanded(child: Container()),
-            Text(
-              price,
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "USD",
-              style: TextStyle(
-                color: selected ? Colors.white : Colors.black,
-                fontSize: 14,
+              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+            ],
+            Expanded(
+              child: Text(
+                data,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget buildSpecificationCar(String title, String data){
-    return Container(
-      width: 130,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      margin: EdgeInsets.only(right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 14,
-            ),
-          ),
-          SizedBox(height: 8),
-          Text(
-            data,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-} 
+      ],
+    ),
+  );
+}
+}

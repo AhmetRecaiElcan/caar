@@ -22,7 +22,7 @@ class Car {
 
   String brand;
   String model;
-  int price;
+  String price;
   String condition;
   List<String> images;
 

@@ -39,6 +39,7 @@ dependencies:
   url_launcher: ^6.3.1
   flutter_pdfview: ^1.4.0
   model_viewer_plus: ^1.9.1
+  flutter_svg: ^2.0.17
   
 
 dev_dependencies:
@@ -68,6 +69,7 @@ flutter:
    - assets/
    - assets/images/
    - assets/embed/
+   - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

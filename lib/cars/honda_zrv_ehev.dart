@@ -4,15 +4,15 @@ import 'package:caar/data.dart';
 import 'webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HondaHrvEhevDetails extends StatefulWidget {
+class HondaZervEhevDetails extends StatefulWidget {
   final Car car;
-  const HondaHrvEhevDetails({required this.car});
+  const HondaZervEhevDetails({required this.car});
 
   @override
-  _HondaHrvEhevDetailsState createState() => _HondaHrvEhevDetailsState();
+  _HondaZervEhevDetailsState createState() => _HondaZervEhevDetailsState();
 }
 
-class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
+class _HondaZervEhevDetailsState extends State<HondaZervEhevDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
@@ -217,9 +217,9 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                         scrollDirection: Axis.horizontal,
                         children: [
                           buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "1,5L Hibrit" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "10.7 sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "170mph","assets/svg/makshız.svg"),
+                          buildSpecificationCar("Motor", "2.0L Hibrit" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "8 sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "173mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -253,7 +253,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
               ),
               SizedBox(height: 4),
               Text(
-                "1.928.000 ₺",
+                "3.138.000 ₺",
                 style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -276,7 +276,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/3n7nmfpIRC1724394417352.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/fRpHhy3FMA1707483362580.pdf'),
             ),
           );
         },
