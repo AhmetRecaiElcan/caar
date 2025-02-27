@@ -149,33 +149,29 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                       ),
                       SizedBox(height: 8),
                      Expanded(
-  child: Container(
-    child: PageView(
-      physics: BouncingScrollPhysics(),
-      onPageChanged: (int page) {
-        setState(() {
-          _currentImage = page;
-        });
-      },
-      children: widget.car.images.map((path) {
-        if (path.endsWith('.glb')) {
-          return GLBViewer(filePath: path); // GLB model için
-        } else {
-          return Container(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Hero(
-              tag: widget.car.model,
-              child: Image.asset(
-                path,
-                fit: BoxFit.scaleDown,
-              ),
-            ),
-          );
-        }
-      }).toList(),
-    ),
-  ),
-),
+                        child: Container(
+                          child: PageView(
+                            physics: BouncingScrollPhysics(),
+                            onPageChanged: (int page){
+                              setState(() {
+                                _currentImage = page;
+                              });
+                            },
+                            children: widget.car.images.map((path) {
+                              return Container(
+                                padding: EdgeInsets.symmetric(horizontal: 16),
+                                child: Hero(
+                                  tag: widget.car.model,
+                                  child: Image.asset(
+                                    path,
+                                    fit: BoxFit.scaleDown,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
                       widget.car.images.length > 1
                       ? Container(
                         margin: EdgeInsets.symmetric(vertical: 16),
@@ -186,31 +182,6 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                         ),
                       )
                       : Container(),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            buildPricePerPeriod(
-                              "2",
-                              "4.350",
-                              true,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "6",
-                              "4.800",
-                              false,
-                            ),
-                            SizedBox(width: 16),
-                            buildPricePerPeriod(
-                              "1",
-                              "5.100",
-                              false,
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
                   ),
                 ),
@@ -245,12 +216,10 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Menzil", "Whe"),
-                          buildSpecificationCar("Şanzıman", "Otomatik"),
-                          buildSpecificationCar("Koltuk", "4"),
-                          buildSpecificationCar("Yakıt", "v10 2.0"),
-                          buildSpecificationCar("Speed (0-100)", "3.2 sec"),
-                          buildSpecificationCar("Top Speed", "121 mph"),
+                          buildSpecificationCar("Yakıt Sistemi", "PGM-FI"),
+                          buildSpecificationCar("Motor", "2.0L Hibrit"),
+                          buildSpecificationCar("Speed (0-100)", "9.5 sn"),
+                          buildSpecificationCar("Maksimum Hız ", "187 km/s"),
                         ],
                       ),
                     ),
@@ -274,38 +243,26 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  "12 Month",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14,
-                  ),
+              Text(
+                "Tavsiye Edilen Fiyat",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
                 ),
-                SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      "USD 4,350",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22,
-                      ),
-                    ),
-                    SizedBox(width: 8),
-                    Text(
-                      "per month",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+              ),
+              SizedBox(height: 4),
+              Text(
+                "4.151.000 ₺",
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
                 ),
+              ),
               ],
             ),
-           Container(
+           Container(   
   height: 50,
   decoration: BoxDecoration(
     color: kPrimaryColor,
@@ -319,7 +276,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/3KpJAKwUXi1707811565113.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/qL0VmZqBtn1707811538509.pdf'),
             ),
           );
         },

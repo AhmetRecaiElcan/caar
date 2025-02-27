@@ -5,9 +5,13 @@ class CarUrls {
   static final Map<String, Map<String, String>> modelUrls = {
     'Honda': {
       'Genel Fiyat Listesi': 'https://www.honda.com.tr/otomobil/otomobil-fiyat-listesi-2024',
-      'Civic': 'https://honda.com.tr/civic',
-      'City': 'https://honda.com.tr/city',
-      'CR-V': 'https://honda.com.tr/cr-v',
+      'Civic': 'https://www.honda.com.tr/otomobil/modeller/honda-civic-sedan',
+      'City': 'https://www.honda.com.tr/otomobil/modeller/honda-city',
+      'Jazz': 'https://www.honda.com.tr/otomobil/modeller/honda-jazz-hibrit',
+      'HR-V E:HEV': 'https://www.honda.com.tr/otomobil/modeller/honda-hr-v-hibrit',
+      'ZR-V E:HEV' : 'https://www.honda.com.tr/otomobil/modeller/honda-zr-v-hibrit',
+      'Civic Type R': 'https://www.honda.com.tr/otomobil/modeller/honda-type-r',
+      'CR-V E:HEV': 'https://www.honda.com.tr/otomobil/modeller/honda-cr-v-hibrit',
     },
     'Byd' : {
       'Genel Fiyat Listesi':'https://www.bydauto.com.tr/fiyat-listesi',

@@ -99,7 +99,7 @@ List<Car> getCarList(){
     Car(
       "Honda",
       "CR-V E:HEV",
-      4350,
+      4151000,
       "Weekly",
       [
         "assets/images/honda_1.png",
