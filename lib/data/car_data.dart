@@ -171,6 +171,17 @@ List<Car> getCarList(){
         "assets/images/honda_typer2.png",
       ],
     ),
+    Car(
+      "Fiat",
+      "Egea Cross",
+      "1.000.000",
+      "3 yıl (60.000 km) garanti",
+      [
+        "assets/images/fiat_egea1.png",
+        "assets/images/fiat_egea0.png",
+        "assets/images/fiat_egea2.png",
+      ],
+    )
     // ... diğer arabaların listesi buraya taşınacak ...
   ];
 } 

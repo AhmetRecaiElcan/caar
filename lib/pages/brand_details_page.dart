@@ -5,20 +5,21 @@ import 'package:caar/data.dart';
 import 'package:caar/cars/ford_details.dart';
 import 'package:caar/cars/tesla_details.dart';
 import 'package:caar/data/car_data.dart';
-import 'package:caar/cars/byd_dolphin.dart';
+import 'package:caar/cars/byd/byd_dolphin.dart';
 import 'package:caar/cars/alfa_romeo_c4.dart';
 import 'package:caar/cars/land_rover_discovery.dart';
-import 'package:caar/cars/byd_atto_3.dart';
-import 'package:caar/cars/byd_seal_u_ev.dart';
-import 'package:caar/cars/byd_seal_u_dm-i.dart';
-import 'package:caar/cars/byd_seal_u_awd.dart';
-import 'package:caar/cars/byd_seal_han.dart';
+import 'package:caar/cars/byd/byd_atto_3.dart';
+import 'package:caar/cars/byd/byd_seal_u_ev.dart';
+import 'package:caar/cars/byd/byd_seal_u_dm-i.dart';
+import 'package:caar/cars/byd/byd_seal_u_awd.dart';
+import 'package:caar/cars/byd/byd_seal_han.dart';
 import 'package:caar/cars/honda_civic.dart';
 import 'package:caar/cars/honda_crv_ehev.dart';
 import 'package:caar/cars/honda_hrv_ehev.dart';
 import 'package:caar/cars/honda_jazz_ehev.dart';
 import 'package:caar/cars/honda_typer.dart';
 import 'package:caar/cars/honda_zrv_ehev.dart';
+import 'package:caar/cars/fiat_egeacross.dart';
 
 
 
@@ -76,8 +77,6 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         } else if (car.model == "ZR-V E:HEV") {
           return HondaZervEhevDetails(car: car);
         }
-
-
         return HondaCityDetails(car: car); // varsayılan Honda City sayfası
       case "byd":
         if (car.model == "Dolphin") {
@@ -96,7 +95,8 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         return BydDolphinDetails(car: car);// varsayılan BYD sayfası
       case "alfa romeo":
         return AlfaRomeoC4Details(car: car);
-      
+      case"fiat":
+        return FiatEgeaCrossDetails(car: car);
       // Diğer markalar için case'ler eklenecek
       default:
         return FordDetails(car: car); // Geçici olarak Ford detaylarını göster

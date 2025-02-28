@@ -25,6 +25,7 @@ class CarUrls {
     // PDF formatındaki fiyat listeleri
     'Fiat': {
       'Genel Fiyat Listesi': 'https://kampanya.fiat.com.tr/Pdf/Fiyatlar/OtomobilFiyatListesi.pdf',
+      'Egea':'',
     },
     'Dacia': {
       'Genel Fiyat Listesi': 'https://cdn.cetas.com.tr/Delivery/Public/File/dacia-Fiyat-Listesi_yeni_5ll3w6psd5.pdf',

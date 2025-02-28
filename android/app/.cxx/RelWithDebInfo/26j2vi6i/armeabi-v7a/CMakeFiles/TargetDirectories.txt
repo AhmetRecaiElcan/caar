@@ -1,0 +1,2 @@
+C:/Users/Honorable/Desktop/caar-1/android/app/.cxx/RelWithDebInfo/26j2vi6i/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Honorable/Desktop/caar-1/android/app/.cxx/RelWithDebInfo/26j2vi6i/armeabi-v7a/CMakeFiles/rebuild_cache.dir
