@@ -19,13 +19,28 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  // Özellik kategorileri ve değerleri
-  List<Map<String, String>> currentSpecifications = [
-    {"Şanzıman": "Otomatik"},
-    {"Yakıt": "v10 2.0"},
-    {"Top Speed": "121 mph"}
-  ];
-  String currentPrice = "₺ 4,350";
+  // Sadece fiyat bilgisi tutuyoruz
+  String currentPrice = "₺ 4,800";
+  
+  // Özellikler için bir liste tanımlamak yerine, direkt metodlar kullanacağız
+  List<Map<String, dynamic>> getSpecifications(String type) {
+    if (type == "benzinli") {
+      return [
+        {"Hız(0-100)": "12.9sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.4|95 HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "174 km/h", "svg": "assets/svg/makshız.svg"}
+      ];
+    } else { // dizel
+      return [
+        {"Hız(0-100)": "10.2sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "200 km/s", "svg": "assets/svg/makshız.svg"}
+      ];
+    }
+  }
+
+  // Varsayılan olarak benzinli tipi
+  String _currentType = "benzinli";
 
   List<Widget> buildPageIndicator() {
     List<Widget> list = [];
@@ -201,17 +216,13 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                             ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  currentSpecifications = [
-                                    {"Hız(0-100)": "12.9sn"},
-                                    {"Motor": "1.4 | 95 HP "},
-                                    {"Maks. Hız": "174 km/h"}
-                                  ];
+                                  _currentType = "benzinli";
                                   currentPrice = "₺ 4,800";
                                 });
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
+                                backgroundColor: _currentType == "benzinli" ? Colors.blue : Colors.white,
+                                foregroundColor: _currentType == "benzinli" ? Colors.white : Colors.black,
                                 padding:
                                     EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 shape: RoundedRectangleBorder(
@@ -224,17 +235,13 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                             ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  currentSpecifications = [
-                                    {"Hız(0-100)": "10.2sn"},
-                                    {"Motor": "1.6 | 130 HP"},
-                                    {"Maks. Hız": "200 km/s"},
-                                  ];
+                                  _currentType = "dizel";
                                   currentPrice = "₺ 5,200";
                                 });
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                foregroundColor: Colors.black,
+                                backgroundColor: _currentType == "dizel" ? Colors.blue : Colors.white,
+                                foregroundColor: _currentType == "dizel" ? Colors.white : Colors.black,
                                 padding:
                                     EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                 shape: RoundedRectangleBorder(
@@ -293,14 +300,18 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                       ),
                     ),
                     Container(
-                      height: 80,
+                      height: 100, // Yüksekliği artırdık (80'den 100'e)
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        children: currentSpecifications
-                            .map((spec) => buildSpecificationCar(spec.keys.first, spec.values.first))
+                        children: getSpecifications(_currentType)
+                            .map((spec) => buildSpecificationCar(
+                                spec.keys.first.toString(), 
+                                spec.values.first.toString(),
+                                spec["svg"]
+                              ))
                             .toList(),
                       ),
                     ),
@@ -384,14 +395,15 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
 
   Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
   return Container(
-    width: 160, // Genişliği artırdık
+    width: 160,
+    height: 90, // Container'a sabit yükseklik ekledik
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.all(
         Radius.circular(15),
       ),
     ),
-    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16), // Padding'i biraz arttırdık
     margin: EdgeInsets.only(right: 16),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -406,14 +418,18 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
         ),
         SizedBox(height: 8),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center, // Ortalamayı sağlar
           children: [
             if (svgPath != null) ...[
-              SvgPicture.asset(
-                svgPath,
-                height: 32,
-                width: 32,
+              Container(
+                width: 36,
+                height: 36,
+                child: SvgPicture.asset(
+                  svgPath,
+                  fit: BoxFit.contain, // SVG'nin container içinde uygun şekilde sığdırılmasını sağlar
+                ),
               ),
-              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+              SizedBox(width: 8),
             ],
             Expanded(
               child: Text(
@@ -423,6 +439,8 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
+                maxLines: 2, // Uzun metinler için 2 satıra izin ver
+                overflow: TextOverflow.ellipsis, // Taşan metni ... ile göster
               ),
             ),
           ],
