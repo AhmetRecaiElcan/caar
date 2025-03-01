@@ -3,45 +3,35 @@ import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:caar/cars/fiat/car_version_egea_sedan.dart';
+import 'package:caar/cars/fiat/car_version_topolino.dart';
 
 
-class FiatEgeaSedanDetails extends StatefulWidget {
+class FiatTopolinoDetails extends StatefulWidget {
   final Car car;
-  const FiatEgeaSedanDetails({required this.car});
+  const FiatTopolinoDetails({required this.car});
 
   @override
-  _FiatEgeaSedanDetailsState createState() => _FiatEgeaSedanDetailsState();
+  _FiatTopolinoDetailsState createState() => _FiatTopolinoDetailsState();
 }
 
-class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
+class _FiatTopolinoDetailsState extends State<FiatTopolinoDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  // Sadece motor tipini tutacağız, fiyatı Car nesnesinden alacağız
-  String _currentType = "benzinli";
+  // Değişkeni "topolino" olarak sabit tutuyoruz, artık buton ile değişmiyor
+  final String _currentType = "topolino";
   
   // Özellikler için bir liste tanımlamak yerine, direkt metodlar kullanacağız
   List<Map<String, dynamic>> getSpecifications(String type) {
-    if (type == "benzinli") {
+    if (type == "topolino") {
       return [
-        {"Hız(0-100)": "11.98 sn", "svg": "assets/svg/hızsny.svg"},
-        {"Motor": "1.4 |95HP", "svg": "assets/svg/motor.svg"},
-        {"Maks. Hız": "186 km/h", "svg": "assets/svg/makshız.svg"}
+        {"Menzil": "75km", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "Elektrik", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "45 km/h", "svg": "assets/svg/makshız.svg"}
       ];
-    } else if(type=="dizel otomatik"){ // dizel
-      return [
-        {"Hız(0-100)": "9.8sn", "svg": "assets/svg/hızsny.svg"},
-        {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
-        {"Maks. Hız": "209 km/s", "svg": "assets/svg/makshız.svg"}
-      ];
-    }else { // dizel
-      return [
-        {"Hız(0-100)": "9.7sn", "svg": "assets/svg/hızsny.svg"},
-        {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
-        {"Maks. Hız": "212 km/s", "svg": "assets/svg/makshız.svg"}
-      ];
-    }  
+    }
+    // Varsayılan olarak boş liste döndürelim
+    return [];
   }
 
   List<Widget> buildPageIndicator() {
@@ -213,90 +203,34 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
                               height: 50,
-                              width: MediaQuery.of(context).size.width - 32, // Screen width minus padding
-                              child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              children: [
-                                ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                  _currentType = "benzinli";
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: _currentType == "benzinli" ? Colors.blue : Colors.white,
-                                  foregroundColor: _currentType == "benzinli" ? Colors.white : Colors.black,
-                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                  shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(color: borderColor),
+                              width: MediaQuery.of(context).size.width - 32,
+                              child: Center(
+                                // Sadece Versiyonlar butonu gösteriliyor
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => CarVersionsScreen(),
+                                      ),
+                                    );
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.blue,
+                                    foregroundColor: Colors.white,
+                                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
                                   ),
-                                ),
-                                child: Text('Benzinli'),
-                                ),
-                                SizedBox(width: 10),
-                                ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                  _currentType = "dizel otomatik";
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: _currentType == "dizel otomatik" ? Colors.blue : Colors.white,
-                                  foregroundColor: _currentType == "dizel otomatik" ? Colors.white : Colors.black,
-                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                  shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(color: borderColor),
-                                  ),
-                                ),
-                                child: Text('Dizel Otomatik'),
-                                ),
-                                SizedBox(width: 10),
-                                ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                  _currentType = "dizel manuel";
-                                  });
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: _currentType == "dizel manuel" ? Colors.blue : Colors.white,
-                                  foregroundColor: _currentType == "dizel manuel" ? Colors.white : Colors.black,
-                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                  shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                  side: BorderSide(color: borderColor),
-                                  ),
-                                ),
-                                child: Text('Dizel Manuel'),
-                                ),SizedBox(width: 10),
-                                ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CarVersionsScreen(),
-                                  ),
-                                );
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue,
-                                foregroundColor: Colors.white,
-                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                                  child: Text('Versiyonlar'),
                                 ),
                               ),
-                              child: Text('Versiyonlar'),
                             ),
-                              ],
-                              ),
-                            ),
-                            
                           ],
                         ),
                       ),
@@ -327,7 +261,7 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                       ),
                     ),
                     Container(
-                      height: 110, // Yüksekliği artırdık (80'den 100'e)
+                      height: 95, // Yüksekliği artırdık (80'den 100'e)
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
@@ -397,7 +331,7 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                         MaterialPageRoute(
                           builder: (context) => WebViewScreen(
                             url:
-                                'https://www.otomobil.fiat.com.tr/modeller/egea/sedan',
+                                'https://kampanya.fiat.com.tr/kataloglar/pdf/Topolino-katalog.pdf',
                           ),
                         ),
                       );
@@ -422,7 +356,7 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
 
   Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
   return Container(
-    width: 160,
+    width: 145,
     height: 90, // Container'a sabit yükseklik ekledik
     decoration: BoxDecoration(
       color: Colors.white,

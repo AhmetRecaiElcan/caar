@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:caar/data/brand_data.dart';
 import 'package:caar/pages/brand_details_page.dart';
-import 'package:caar/main.dart';  // MainNavigation için import ekleyelim
+import 'package:caar/main.dart'; 
+import 'package:caar/data/car_data.dart'; // MainNavigation için import ekleyelim
 
 class AllCarsGrid extends StatefulWidget {
   @override

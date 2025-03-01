@@ -3,7 +3,7 @@ import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:caar/cars/fiat/car_version_fiat_egea_cross.dart';
+import 'package:caar/cars/fiat/car_version_egea_cross.dart';
 
 
 class FiatEgeaCrossDetails extends StatefulWidget {

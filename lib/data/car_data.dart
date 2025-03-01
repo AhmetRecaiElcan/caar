@@ -191,6 +191,17 @@ List<Car> getCarList(){
         "assets/images/fiat/fiat_egea2.png",
         "assets/images/fiat/fiat_egea3.png",
       ],
+    ),
+    Car(
+      "Fiat",
+      "Topolino",
+      "475.900",
+      "3. Yıl ya da 150.000 Km",
+      [
+        "assets/images/fiat/fiat_topolino0.jpg",
+        "assets/images/fiat/fiat_topolino1.jpg",
+        "assets/images/fiat/fiat_topolino2.jpg",
+      ],
     )
     // ... diğer arabaların listesi buraya taşınacak ...
   ];

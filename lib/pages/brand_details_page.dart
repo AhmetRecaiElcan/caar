@@ -21,9 +21,7 @@ import 'package:caar/cars/honda/honda_typer.dart';
 import 'package:caar/cars/honda/honda_zrv_ehev.dart';
 import 'package:caar/cars/fiat/fiat_egeacross.dart';
 import 'package:caar/cars/fiat/fiat_egeasedan.dart';
-
-
-
+import 'package:caar/cars/fiat/fiat_topolino.dart';
 
 
 class BrandDetailsPage extends StatefulWidget {
@@ -101,10 +99,13 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
           return FiatEgeaCrossDetails(car: car);
         }else if (car.model == "Egea Sedan") {
         return FiatEgeaSedanDetails(car: car);
-      }//else if (car.model == "Egea HB") {
+       }else if (car.model == "Topolino") {
+        return FiatTopolinoDetails(car: car);
+       }
+      //}//else if (car.model == "Egea HB") {
         //return FiatEgeaCrossDetails(car: car);
       //}
-      return FiatEgeaCrossDetails(car: car);
+       return FiatEgeaCrossDetails(car: car);
       // Diğer markalar için case'ler eklenecek
       default:
         return FordDetails(car: car); // Geçici olarak Ford detaylarını göster
