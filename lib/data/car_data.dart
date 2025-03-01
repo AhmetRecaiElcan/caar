@@ -29,9 +29,9 @@ List<Car> getCarList(){
       "1.284.500",
       "Monthly",
       [
-        "assets/images/byd_1.png",
-        "assets/images/byd_0.png",
-         "assets/embed/b.glb",
+        "assets/images/byd/byd_1.png",
+        "assets/images/byd/byd_0.png",
+         "assets/embed/byd/b.glb",
       ],
     ),
     Car(
@@ -40,9 +40,9 @@ List<Car> getCarList(){
       "1494500",
       "Monthly",
       [
-        "assets/images/byd_2.png",
-        "assets/images/byd_3.png",
-        "assets/embed/bydatto.glb",
+        "assets/images/byd/byd_2.png",
+        "assets/images/byd/byd_3.png",
+        "assets/embed/byd/bydatto.glb",
       ],
     ),
     Car(
@@ -51,8 +51,8 @@ List<Car> getCarList(){
       "1797000",
       "Weekly",
       [
-        "assets/images/byd_4.png",
-        "assets/images/byd_5.png",
+        "assets/images/byd/byd_4.png",
+        "assets/images/byd/byd_5.png",
       ],
     ),
     Car(
@@ -61,9 +61,9 @@ List<Car> getCarList(){
       "1857750",
       "Weekly",
       [
-        "assets/images/byd_6.png",
-        "assets/images/byd_7.png",
-        "assets/images/byd_8.png",
+        "assets/images/byd/byd_6.png",
+        "assets/images/byd/byd_7.png",
+        "assets/images/byd/byd_8.png",
       ],
     ), Car(
       "Byd",
@@ -71,8 +71,8 @@ List<Car> getCarList(){
       "2453250",
       "Weekly",
       [
-        "assets/images/byd_10.png",
-        "assets/images/byd_11.png",
+        "assets/images/byd/byd_10.png",
+        "assets/images/byd/byd_11.png",
       ],
     ),
     Car(
@@ -81,9 +81,9 @@ List<Car> getCarList(){
       "3213750",
       "Weekly",
       [
-        "assets/images/byd_12.png",
-        "assets/images/byd_13.png",
-        "assets/images/byd_14.png",
+        "assets/images/byd/byd_12.png",
+        "assets/images/byd/byd_13.png",
+        "assets/images/byd/byd_14.png",
       ],
     ),
     Car(
@@ -101,9 +101,9 @@ List<Car> getCarList(){
       "4151000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_1.png",
-        "assets/images/honda_2.png",
-        "assets/images/honda_3.png",
+        "assets/images/honda/honda_1.png",
+        "assets/images/honda/honda_2.png",
+        "assets/images/honda/honda_3.png",
       ],
     ),
     Car(
@@ -112,8 +112,8 @@ List<Car> getCarList(){
       "3138000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_4.png",
-        "assets/images/honda_5.png",
+        "assets/images/honda/honda_4.png",
+        "assets/images/honda/honda_5.png",
       ],
     ),
     Car(
@@ -122,9 +122,9 @@ List<Car> getCarList(){
       "1928000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_hrv0.png",
-        "assets/images/honda_hrv1.png",
-        "assets/images/honda_hrv2.png",
+        "assets/images/honda/honda_hrv0.png",
+        "assets/images/honda/honda_hrv1.png",
+        "assets/images/honda/honda_hrv2.png",
       ],
     ),
     Car(
@@ -133,9 +133,9 @@ List<Car> getCarList(){
       "1413000" ,
       "3+3 Yıl Garanti ",
       [
-        "assets/images/honda_jazz0.png",
-        "assets/images/honda_jazz1.png",
-        "assets/images/honda_jazz2.png",
+        "assets/images/honda/honda_jazz0.png",
+        "assets/images/honda/honda_jazz1.png",
+        "assets/images/honda/honda_jazz2.png",
       ],
     ),
     Car(
@@ -144,9 +144,9 @@ List<Car> getCarList(){
       "2040000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_civic0.png",
-        "assets/images/honda_civic1.png",
-        "assets/images/honda_civic2.png",
+        "assets/images/honda/honda_civic0.png",
+        "assets/images/honda/honda_civic1.png",
+        "assets/images/honda/honda_civic2.png",
       ],
     ),
     Car(
@@ -155,9 +155,9 @@ List<Car> getCarList(){
       "1335000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_city0.png",
-        "assets/images/honda_city1.png",
-        "assets/images/honda_city2.png",
+        "assets/images/honda/honda_city0.png",
+        "assets/images/honda/honda_city1.png",
+        "assets/images/honda/honda_city2.png",
       ],
     ),
     Car(
@@ -166,9 +166,9 @@ List<Car> getCarList(){
       "4.261.000",
       "3+3 Yıl Garanti",
       [
-        "assets/images/honda_typer0.png",
-        "assets/images/honda_typer1.png",
-        "assets/images/honda_typer2.png",
+        "assets/images/honda/honda_typer0.png",
+        "assets/images/honda/honda_typer1.png",
+        "assets/images/honda/honda_typer2.png",
       ],
     ),
     Car(
@@ -177,9 +177,19 @@ List<Car> getCarList(){
       "1.000.000",
       "3 yıl (60.000 km) garanti",
       [
-        "assets/images/fiat_egea1.png",
-        "assets/images/fiat_egea0.png",
-        "assets/images/fiat_egea2.png",
+        "assets/images/fiat/fiat_egea1.png",
+        "assets/images/fiat/fiat_egea0.png",
+        "assets/images/fiat/fiat_egea2.png",
+      ],
+    ),
+    Car(
+      "Fiat",
+      "Egea Sedan",
+      "1.084.900 ",
+      "3 yıl (60.000 km) garanti",
+      [
+        "assets/images/fiat/fiat_egea2.png",
+        "assets/images/fiat/fiat_egea3.png",
       ],
     )
     // ... diğer arabaların listesi buraya taşınacak ...

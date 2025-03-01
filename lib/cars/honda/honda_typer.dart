@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HondaCrvEhevDetails extends StatefulWidget {
+
+class HondaTyperDetails extends StatefulWidget {
   final Car car;
-  const HondaCrvEhevDetails({required this.car});
+  const HondaTyperDetails({required this.car});
 
   @override
-  _HondaCrvEhevDetailsState createState() => _HondaCrvEhevDetailsState();
+  _HondaTyperDetailsState createState() => _HondaTyperDetailsState();
 }
 
-class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
+class _HondaTyperDetailsState extends State<HondaTyperDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  List<Widget> buildPageIndicator(){
+   List<Widget> buildPageIndicator(){
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -210,17 +211,17 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
                       ),
                     ),
                     Container(
-                      height: 90,
+                      height: 130,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "2.0 Hibrit" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "9.5 sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "187mph","assets/svg/makshız.svg"),
+                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1,5L VTEC benzin" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "10.5sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "198mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -254,7 +255,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
               ),
               SizedBox(height: 4),
               Text(
-                "4.151.000 ₺",
+                "4.261.000 ₺",
                 style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -277,7 +278,7 @@ class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/qL0VmZqBtn1707811538509.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/d1oBe3RAZK1691138522495.pdf'),
             ),
           );
         },

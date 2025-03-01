@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+//
 
-class HondaJazzEhevDetails extends StatefulWidget {
+class HondaCityDetails extends StatefulWidget {
   final Car car;
-  const HondaJazzEhevDetails({required this.car});
+  const HondaCityDetails({required this.car});
 
   @override
-  _HondaJazzEhevDetailsState createState() => _HondaJazzEhevDetailsState();
+  _HondaCityDetailsState createState() => _HondaCityDetailsState();
 }
 
-class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
+class _HondaCityDetailsState extends State<HondaCityDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-   List<Widget> buildPageIndicator(){
+  List<Widget> buildPageIndicator(){
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -209,17 +210,17 @@ class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
                       ),
                     ),
                     Container(
-                      height: 90,
+                      height: 130,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "1.5L Hibrit" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "9.4 sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "175mph","assets/svg/makshız.svg"),
+                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1,5L VTEC benzin" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "10.5sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "198mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -253,7 +254,7 @@ class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
               ),
               SizedBox(height: 4),
               Text(
-                "1.413.000 ₺",
+                "1.335.000 ₺",
                 style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -276,7 +277,7 @@ class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/DIPWkUuKxJ1723545467030.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/84gY2t3efQ1678887266500.pdf'),
             ),
           );
         },

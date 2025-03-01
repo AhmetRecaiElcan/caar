@@ -68,6 +68,9 @@ flutter:
   assets:
    - assets/
    - assets/images/
+   - assets/images/byd/
+   - assets/images/fiat/
+   - assets/images/honda/
    - assets/embed/
    - assets/svg/
 

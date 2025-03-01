@@ -13,17 +13,17 @@ class CarVersionsScreen extends StatelessWidget {
        'Sürücü Koltuğu Elektrik Ayarlı Bel Desteği']
     },
     {
-      'image': 'assets/images/fiat_lounge.jpg',
+      'image': 'assets/images/fiat/fiat_lounge.jpg',
       'name': 'Lounge',
       'features': ['250 HP', 'Manual', 'Sport Mode', 'Navigation System']
     },
     {
-      'image': 'assets/images/fiat_street.jpg',
+      'image': 'assets/images/fiat/fiat_street.jpg',
       'name': 'Street',
       'features': ['300 HP', 'Automatic', 'Luxury Interior', 'Adaptive Cruise Control']
     },
     {
-      'image': 'assets/images/fiat_urban.jpg',
+      'image': 'assets/images/fiat/fiat_urban.jpg',
       'name': 'Urban',
       'features': ['350 HP', 'Hybrid', 'Sunroof', '360 Camera']
     },

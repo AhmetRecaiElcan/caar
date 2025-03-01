@@ -1,46 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:caar/cars/car_version_fiat.dart';
+import 'package:caar/cars/fiat/car_version_fiat_egea_sedan.dart';
 
 
-class FiatEgeaCrossDetails extends StatefulWidget {
+class FiatEgeaSedanDetails extends StatefulWidget {
   final Car car;
-  const FiatEgeaCrossDetails({required this.car});
+  const FiatEgeaSedanDetails({required this.car});
 
   @override
-  _FiatEgeaCrossDetailsState createState() => _FiatEgeaCrossDetailsState();
+  _FiatEgeaSedanDetailsState createState() => _FiatEgeaSedanDetailsState();
 }
 
-class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
+class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  // Sadece fiyat bilgisi tutuyoruz
-  String currentPrice = "₺ 4,800";
+  // Sadece motor tipini tutacağız, fiyatı Car nesnesinden alacağız
+  String _currentType = "benzinli";
   
   // Özellikler için bir liste tanımlamak yerine, direkt metodlar kullanacağız
   List<Map<String, dynamic>> getSpecifications(String type) {
     if (type == "benzinli") {
       return [
-        {"Hız(0-100)": "12.9sn", "svg": "assets/svg/hızsny.svg"},
-        {"Motor": "1.4|95 HP", "svg": "assets/svg/motor.svg"},
-        {"Maks. Hız": "174 km/h", "svg": "assets/svg/makshız.svg"}
+        {"Hız(0-100)": "11.98 sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.4 |95HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "186 km/h", "svg": "assets/svg/makshız.svg"}
       ];
     } else { // dizel
       return [
-        {"Hız(0-100)": "10.2sn", "svg": "assets/svg/hızsny.svg"},
+        {"Hız(0-100)": "9.8sn", "svg": "assets/svg/hızsny.svg"},
         {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
-        {"Maks. Hız": "200 km/s", "svg": "assets/svg/makshız.svg"}
+        {"Maks. Hız": "209 km/s", "svg": "assets/svg/makshız.svg"}
       ];
     }
   }
 
   // Varsayılan olarak benzinli tipi
-  String _currentType = "benzinli";
+  
 
   List<Widget> buildPageIndicator() {
     List<Widget> list = [];
@@ -213,45 +213,66 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
+                            Container(
+                              height: 50,
+                              width: MediaQuery.of(context).size.width - 32, // Screen width minus padding
+                              child: ListView(
+                              scrollDirection: Axis.horizontal,
+                              children: [
+                                ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
                                   _currentType = "benzinli";
-                                  currentPrice = "₺ 4,800";
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: _currentType == "benzinli" ? Colors.blue : Colors.white,
-                                foregroundColor: _currentType == "benzinli" ? Colors.white : Colors.black,
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                shape: RoundedRectangleBorder(
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: _currentType == "benzinli" ? Colors.blue : Colors.white,
+                                  foregroundColor: _currentType == "benzinli" ? Colors.white : Colors.black,
+                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   side: BorderSide(color: borderColor),
+                                  ),
                                 ),
-                              ),
-                              child: Text('Benzinli'),
-                            ),
-                            ElevatedButton(
-                              onPressed: () {
-                                setState(() {
+                                child: Text('Benzinli'),
+                                ),
+                                SizedBox(width: 10),
+                                ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
                                   _currentType = "dizel";
-                                  currentPrice = "₺ 5,200";
-                                });
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: _currentType == "dizel" ? Colors.blue : Colors.white,
-                                foregroundColor: _currentType == "dizel" ? Colors.white : Colors.black,
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                                shape: RoundedRectangleBorder(
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: _currentType == "dizel" ? Colors.blue : Colors.white,
+                                  foregroundColor: _currentType == "dizel" ? Colors.white : Colors.black,
+                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   side: BorderSide(color: borderColor),
+                                  ),
                                 ),
-                              ),
-                              child: Text('Dizel'),
-                            ),
-                            ElevatedButton(
+                                child: Text('Dizel'),
+                                ),
+                                SizedBox(width: 10),
+                                ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                  _currentType = "dizel manuel";
+                                  });
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: _currentType == "dizel manuel" ? Colors.blue : Colors.white,
+                                  foregroundColor: _currentType == "dizel manuel" ? Colors.white : Colors.black,
+                                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(color: borderColor),
+                                  ),
+                                ),
+                                child: Text('Dizel Manuel'),
+                                ),SizedBox(width: 10),
+                                ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -270,6 +291,10 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                               ),
                               child: Text('Versiyonlar'),
                             ),
+                              ],
+                              ),
+                            ),
+                            
                           ],
                         ),
                       ),
@@ -300,7 +325,7 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                       ),
                     ),
                     Container(
-                      height: 100, // Yüksekliği artırdık (80'den 100'e)
+                      height: 110, // Yüksekliği artırdık (80'den 100'e)
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
@@ -336,7 +361,7 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Fiyat",
+                  "Başlangıç Fiyatı",
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -345,7 +370,7 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                 ),
                 SizedBox(height: 4),
                 Text(
-                  currentPrice,
+                  "₺ ${widget.car.price}", // Car nesnesindeki price değerini kullanıyoruz
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,

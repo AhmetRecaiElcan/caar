@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
-import 'package:caar/data/glb_wiever.dart';
+import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
-class HondaTyperDetails extends StatefulWidget {
+class HondaJazzEhevDetails extends StatefulWidget {
   final Car car;
-  const HondaTyperDetails({required this.car});
+  const HondaJazzEhevDetails({required this.car});
 
   @override
-  _HondaTyperDetailsState createState() => _HondaTyperDetailsState();
+  _HondaJazzEhevDetailsState createState() => _HondaJazzEhevDetailsState();
 }
 
-class _HondaTyperDetailsState extends State<HondaTyperDetails> {
+class _HondaJazzEhevDetailsState extends State<HondaJazzEhevDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
@@ -211,17 +209,17 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                       ),
                     ),
                     Container(
-                      height: 130,
+                      height: 90,
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          buildSpecificationCar("Şanzıman", "CVT Sürekli Değişen ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "1,5L VTEC benzin" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "10.5sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "198mph","assets/svg/makshız.svg"),
+                          buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
+                          buildSpecificationCar("Motor", "1.5L Hibrit" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "9.4 sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "175mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -255,7 +253,7 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
               ),
               SizedBox(height: 4),
               Text(
-                "4.261.000 ₺",
+                "1.413.000 ₺",
                 style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -278,7 +276,7 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/d1oBe3RAZK1691138522495.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/DIPWkUuKxJ1723545467030.pdf'),
             ),
           );
         },

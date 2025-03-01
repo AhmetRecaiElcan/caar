@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
+import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HondaZervEhevDetails extends StatefulWidget {
+class HondaCrvEhevDetails extends StatefulWidget {
   final Car car;
-  const HondaZervEhevDetails({required this.car});
+  const HondaCrvEhevDetails({required this.car});
 
   @override
-  _HondaZervEhevDetailsState createState() => _HondaZervEhevDetailsState();
+  _HondaCrvEhevDetailsState createState() => _HondaCrvEhevDetailsState();
 }
 
-class _HondaZervEhevDetailsState extends State<HondaZervEhevDetails> {
+class _HondaCrvEhevDetailsState extends State<HondaCrvEhevDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
@@ -217,9 +218,9 @@ class _HondaZervEhevDetailsState extends State<HondaZervEhevDetails> {
                         scrollDirection: Axis.horizontal,
                         children: [
                           buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "2.0L Hibrit" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "8 sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "173mph","assets/svg/makshız.svg"),
+                          buildSpecificationCar("Motor", "2.0 Hibrit" ,"assets/svg/motor.svg"),
+                          buildSpecificationCar("Speed (0-100)", "9.5 sn","assets/svg/hızsny.svg"),
+                          buildSpecificationCar("Maksimum Hız ", "187mph","assets/svg/makshız.svg"),
                         ],
                       ),
                     ),
@@ -253,7 +254,7 @@ class _HondaZervEhevDetailsState extends State<HondaZervEhevDetails> {
               ),
               SizedBox(height: 4),
               Text(
-                "3.138.000 ₺",
+                "4.151.000 ₺",
                 style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -276,7 +277,7 @@ class _HondaZervEhevDetailsState extends State<HondaZervEhevDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/fRpHhy3FMA1707483362580.pdf'),
+              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/qL0VmZqBtn1707811538509.pdf'),
             ),
           );
         },

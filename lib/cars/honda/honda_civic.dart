@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HondaCivicDetails extends StatefulWidget {

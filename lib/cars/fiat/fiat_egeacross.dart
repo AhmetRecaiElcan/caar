@@ -1,22 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'webview_screen.dart';
+import '../webview_screen.dart';
+import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:caar/cars/fiat/car_version_fiat_egea_cross.dart';
 
-class HondaHrvEhevDetails extends StatefulWidget {
+
+class FiatEgeaCrossDetails extends StatefulWidget {
   final Car car;
-  const HondaHrvEhevDetails({required this.car});
+  const FiatEgeaCrossDetails({required this.car});
 
   @override
-  _HondaHrvEhevDetailsState createState() => _HondaHrvEhevDetailsState();
+  _FiatEgeaCrossDetailsState createState() => _FiatEgeaCrossDetailsState();
 }
 
-class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
+class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
   int _currentImage = 0;
   final borderColor = Colors.grey[300] ?? Colors.grey;
 
-  List<Widget> buildPageIndicator(){
+  // Sadece motor tipini tutacağız, fiyatı Car nesnesinden alacağız
+  String _currentType = "benzinli";
+  
+  // Özellikler için bir liste tanımlamak yerine, direkt metodlar kullanacağız
+  List<Map<String, dynamic>> getSpecifications(String type) {
+    if (type == "benzinli") {
+      return [
+        {"Hız(0-100)": "12.9sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.4|95 HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "174 km/h", "svg": "assets/svg/makshız.svg"}
+      ];
+    } else { // dizel
+      return [
+        {"Hız(0-100)": "10.2sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "200 km/s", "svg": "assets/svg/makshız.svg"}
+      ];
+    }
+  }
+
+  // Varsayılan olarak benzinli tipi
+  
+
+  List<Widget> buildPageIndicator() {
     List<Widget> list = [];
     for (var i = 0; i < widget.car.images.length; i++) {
       list.add(buildIndicator(i == _currentImage));
@@ -24,7 +50,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
     return list;
   }
 
-  Widget buildIndicator(bool isActive){
+  Widget buildIndicator(bool isActive) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 150),
       margin: EdgeInsets.symmetric(horizontal: 6),
@@ -80,7 +106,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                                   Icons.keyboard_arrow_left,
                                   color: Colors.black,
                                   size: 28,
-                                )
+                                ),
                               ),
                             ),
                             Row(
@@ -98,7 +124,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                                     Icons.bookmark_border,
                                     color: Colors.white,
                                     size: 22,
-                                  )
+                                  ),
                                 ),
                                 SizedBox(width: 16),
                                 Container(
@@ -117,7 +143,7 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                                     Icons.share,
                                     color: Colors.black,
                                     size: 22,
-                                  )
+                                  ),
                                 ),
                               ],
                             ),
@@ -148,11 +174,11 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                         ),
                       ),
                       SizedBox(height: 8),
-                     Expanded(
+                      Expanded(
                         child: Container(
                           child: PageView(
                             physics: BouncingScrollPhysics(),
-                            onPageChanged: (int page){
+                            onPageChanged: (int page) {
                               setState(() {
                                 _currentImage = page;
                               });
@@ -173,15 +199,80 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                         ),
                       ),
                       widget.car.images.length > 1
-                      ? Container(
-                        margin: EdgeInsets.symmetric(vertical: 16),
-                        height: 30,
+                          ? Container(
+                              margin: EdgeInsets.symmetric(vertical: 16),
+                              height: 30,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: buildPageIndicator(),
+                              ),
+                            )
+                          : Container(),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: buildPageIndicator(),
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  _currentType = "benzinli";
+                                  // Fiyatı artık burada değiştirmiyoruz
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: _currentType == "benzinli" ? Colors.blue : Colors.white,
+                                foregroundColor: _currentType == "benzinli" ? Colors.white : Colors.black,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(color: borderColor),
+                                ),
+                              ),
+                              child: Text('Benzinli'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  _currentType = "dizel";
+                                  // Fiyatı artık burada değiştirmiyoruz
+                                });
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: _currentType == "dizel" ? Colors.blue : Colors.white,
+                                foregroundColor: _currentType == "dizel" ? Colors.white : Colors.black,
+                                padding:
+                                    EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  side: BorderSide(color: borderColor),
+                                ),
+                              ),
+                              child: Text('Dizel'),
+                            ),
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => CarVersionsScreen(),
+                                  ),
+                                );
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue,
+                                foregroundColor: Colors.white,
+                                padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              child: Text('Versiyonlar'),
+                            ),
+                          ],
                         ),
-                      )
-                      : Container(),
+                      ),
                     ],
                   ),
                 ),
@@ -209,18 +300,19 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
                       ),
                     ),
                     Container(
-                      height: 90,
+                      height: 100, // Yüksekliği artırdık (80'den 100'e)
                       padding: EdgeInsets.only(top: 8, left: 16),
                       margin: EdgeInsets.only(bottom: 16),
                       child: ListView(
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        children: [
-                          buildSpecificationCar("Şanzıman", "E-CVT ", "assets/svg/şanzıman.svg"),
-                          buildSpecificationCar("Motor", "1,5L Hibrit" ,"assets/svg/motor.svg"),
-                          buildSpecificationCar("Speed (0-100)", "10.7 sn","assets/svg/hızsny.svg"),
-                          buildSpecificationCar("Maksimum Hız ", "170mph","assets/svg/makshız.svg"),
-                        ],
+                        children: getSpecifications(_currentType)
+                            .map((spec) => buildSpecificationCar(
+                                spec.keys.first.toString(), 
+                                spec.values.first.toString(),
+                                spec["svg"]
+                              ))
+                            .toList(),
                       ),
                     ),
                   ],
@@ -243,72 +335,75 @@ class _HondaHrvEhevDetailsState extends State<HondaHrvEhevDetails> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Text(
-                "Tavsiye Edilen Fiyat",
-                style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+                Text(
+                  "Başlangıç Fiyatı",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
                 ),
-              ),
-              SizedBox(height: 4),
-              Text(
-                "1.928.000 ₺",
-                style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+                SizedBox(height: 4),
+                Text(
+                  "₺ ${widget.car.price}", // Car nesnesindeki price değerini kullanıyoruz
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 22,
+                  ),
                 ),
-              ),
               ],
             ),
-           Container(   
-  height: 50,
-  decoration: BoxDecoration(
-    color: kPrimaryColor,
-    borderRadius: BorderRadius.circular(15),
-  ),
-  child: Center(
-    child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
-      child: GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => WebViewScreen(url: 'https://www.honda.com.tr/assets/files/3n7nmfpIRC1724394417352.pdf'),
+            Container(
+              height: 50,
+              decoration: BoxDecoration(
+                color: kPrimaryColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WebViewScreen(
+                            url:
+                                'https://www.otomobil.fiat.com.tr/modeller/egea/cross',
+                          ),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Ayrıntılar...",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
-          );
-        },
-        child: Text(
-          "Ayrıntılar...",
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
-        ),
-      ),
-    ),
-  ),
-)
           ],
         ),
       ),
     );
   }
 
-  // Fonksiyon tanımını güncelleyin
-Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
+  Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
   return Container(
-    width: 160, // Genişliği artırdık
+    width: 160,
+    height: 90, // Container'a sabit yükseklik ekledik
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.all(
         Radius.circular(15),
       ),
     ),
-    padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16), // Padding'i biraz arttırdık
     margin: EdgeInsets.only(right: 16),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -323,14 +418,18 @@ Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
         ),
         SizedBox(height: 8),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.center, // Ortalamayı sağlar
           children: [
             if (svgPath != null) ...[
-              SvgPicture.asset(
-                svgPath,
-                height: 32,
-                width: 32,
+              Container(
+                width: 36,
+                height: 36,
+                child: SvgPicture.asset(
+                  svgPath,
+                  fit: BoxFit.contain, // SVG'nin container içinde uygun şekilde sığdırılmasını sağlar
+                ),
               ),
-              SizedBox(width: 8), // SVG ve yazı arasına boşluk
+              SizedBox(width: 8),
             ],
             Expanded(
               child: Text(
@@ -340,6 +439,8 @@ Widget buildSpecificationCar(String title, String data, [String? svgPath]) {
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
+                maxLines: 2, // Uzun metinler için 2 satıra izin ver
+                overflow: TextOverflow.ellipsis, // Taşan metni ... ile göster
               ),
             ),
           ],

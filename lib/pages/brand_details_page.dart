@@ -1,4 +1,4 @@
-import 'package:caar/cars/honda_city.dart';
+import 'package:caar/cars/honda/honda_city.dart';
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
@@ -13,13 +13,14 @@ import 'package:caar/cars/byd/byd_seal_u_ev.dart';
 import 'package:caar/cars/byd/byd_seal_u_dm-i.dart';
 import 'package:caar/cars/byd/byd_seal_u_awd.dart';
 import 'package:caar/cars/byd/byd_seal_han.dart';
-import 'package:caar/cars/honda_civic.dart';
-import 'package:caar/cars/honda_crv_ehev.dart';
-import 'package:caar/cars/honda_hrv_ehev.dart';
-import 'package:caar/cars/honda_jazz_ehev.dart';
-import 'package:caar/cars/honda_typer.dart';
-import 'package:caar/cars/honda_zrv_ehev.dart';
-import 'package:caar/cars/fiat_egeacross.dart';
+import 'package:caar/cars/honda/honda_civic.dart';
+import 'package:caar/cars/honda/honda_crv_ehev.dart';
+import 'package:caar/cars/honda/honda_hrv_ehev.dart';
+import 'package:caar/cars/honda/honda_jazz_ehev.dart';
+import 'package:caar/cars/honda/honda_typer.dart';
+import 'package:caar/cars/honda/honda_zrv_ehev.dart';
+import 'package:caar/cars/fiat/fiat_egeacross.dart';
+import 'package:caar/cars/fiat/fiat_egeasedan.dart';
 
 
 
@@ -96,7 +97,14 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
       case "alfa romeo":
         return AlfaRomeoC4Details(car: car);
       case"fiat":
-        return FiatEgeaCrossDetails(car: car);
+        if (car.model == "Egea Cross") {
+          return FiatEgeaCrossDetails(car: car);
+        }else if (car.model == "Egea Sedan") {
+        return FiatEgeaSedanDetails(car: car);
+      }//else if (car.model == "Egea HB") {
+        //return FiatEgeaCrossDetails(car: car);
+      //}
+      return FiatEgeaCrossDetails(car: car);
       // Diğer markalar için case'ler eklenecek
       default:
         return FordDetails(car: car); // Geçici olarak Ford detaylarını göster
