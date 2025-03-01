@@ -8,14 +8,14 @@ class CarVersionsScreen extends StatelessWidget {
       'name': 'Limited',
       'features': ['Lounge versiyona ilave olarak;', '17’’ Limited Çizgi Tasarım Alaşım Jantlar',
        'Çizgi Tasarım Tavan Rayları', 'Özel Limited Logosu','Ön Izgara Dağ Figürü',
-       'Kahverengi Eco-Leather Koltuklar ve Kapı Paneller','Arka Kolçak','Isıtmalı Ön Koltuklar',
+       'Kahverengi Eco-Leather Koltuklar ve Kapı Paneller','Arka Kolçak',
        'Isıtmalı Ön Koltuklar','Kör Nokta Uyarı Sistemi0','Ön Park Sensörü',
        'Sürücü Koltuğu Elektrik Ayarlı Bel Desteği']
     },
     {
       'image': 'assets/images/fiat/fiat_lounge.jpg',
       'name': 'Lounge',
-      'features': ['Urban versiyona ilave olarak;', ' 10’’ Tablet Ekran', '7'' Renkli TFT Gösterge Paneli',
+      'features': ['Urban versiyona ilave olarak;', ' 10’’ Tablet Ekran',
       '7'' Renkli TFT Gösterge Paneli','Kablosuz Apple Carplay / Android Auto',' Kablosuz Akıllı Telefon Şarj',
       'Anahtarsız Giriş ve Çalıştırma',' Yağmur ve Karanlık Sensörü','Karartılmış Arka Camlar',
       ' Akıllı Uzun Farlar','Otomatik Kararan İç Dikiz Aynası']

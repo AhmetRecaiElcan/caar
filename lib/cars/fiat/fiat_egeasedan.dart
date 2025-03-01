@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import '../webview_screen.dart';
-import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:caar/cars/fiat/car_version_fiat_egea_sedan.dart';
 
@@ -30,17 +29,20 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
         {"Motor": "1.4 |95HP", "svg": "assets/svg/motor.svg"},
         {"Maks. Hız": "186 km/h", "svg": "assets/svg/makshız.svg"}
       ];
-    } else { // dizel
+    } else if(type=="dizel otomatik"){ // dizel
       return [
         {"Hız(0-100)": "9.8sn", "svg": "assets/svg/hızsny.svg"},
         {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
         {"Maks. Hız": "209 km/s", "svg": "assets/svg/makshız.svg"}
       ];
-    }
+    }else { // dizel
+      return [
+        {"Hız(0-100)": "9.7sn", "svg": "assets/svg/hızsny.svg"},
+        {"Motor": "1.6|130HP", "svg": "assets/svg/motor.svg"},
+        {"Maks. Hız": "212 km/s", "svg": "assets/svg/makshız.svg"}
+      ];
+    }  
   }
-
-  // Varsayılan olarak benzinli tipi
-  
 
   List<Widget> buildPageIndicator() {
     List<Widget> list = [];
@@ -240,19 +242,19 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                                 ElevatedButton(
                                 onPressed: () {
                                   setState(() {
-                                  _currentType = "dizel";
+                                  _currentType = "dizel otomatik";
                                   });
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: _currentType == "dizel" ? Colors.blue : Colors.white,
-                                  foregroundColor: _currentType == "dizel" ? Colors.white : Colors.black,
+                                  backgroundColor: _currentType == "dizel otomatik" ? Colors.blue : Colors.white,
+                                  foregroundColor: _currentType == "dizel otomatik" ? Colors.white : Colors.black,
                                   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                                   shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   side: BorderSide(color: borderColor),
                                   ),
                                 ),
-                                child: Text('Dizel'),
+                                child: Text('Dizel Otomatik'),
                                 ),
                                 SizedBox(width: 10),
                                 ElevatedButton(
@@ -395,7 +397,7 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                         MaterialPageRoute(
                           builder: (context) => WebViewScreen(
                             url:
-                                'https://www.honda.com.tr/assets/files/t8DvaNkYg51707483414868.pdf',
+                                'https://www.otomobil.fiat.com.tr/modeller/egea/sedan',
                           ),
                         ),
                       );
