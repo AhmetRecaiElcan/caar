@@ -30,7 +30,6 @@ class _FiatTopolinoDetailsState extends State<FiatTopolinoDetails> {
         {"Maks. Hız": "45 km/h", "svg": "assets/svg/makshız.svg"}
       ];
     }
-    // Varsayılan olarak boş liste döndürelim
     return [];
   }
 
