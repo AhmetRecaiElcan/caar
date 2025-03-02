@@ -22,6 +22,7 @@ import 'package:caar/cars/honda/honda_zrv_ehev.dart';
 import 'package:caar/cars/fiat/fiat_egeacross.dart';
 import 'package:caar/cars/fiat/fiat_egeasedan.dart';
 import 'package:caar/cars/fiat/fiat_topolino.dart';
+import 'package:caar/cars/fiat/fiat_600.dart';
 
 
 class BrandDetailsPage extends StatefulWidget {
@@ -101,6 +102,8 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         return FiatEgeaSedanDetails(car: car);
        }else if (car.model == "Topolino") {
         return FiatTopolinoDetails(car: car);
+       }else if (car.model == "Egea HB") {
+        return Fiat600Details(car: car);
        }
       //}//else if (car.model == "Egea HB") {
         //return FiatEgeaCrossDetails(car: car);

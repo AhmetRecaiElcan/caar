@@ -202,7 +202,17 @@ List<Car> getCarList(){
         "assets/images/fiat/fiat_topolino1.jpg",
         "assets/images/fiat/fiat_topolino2.jpg",
       ],
-    )
+    ),
+    Car("Fiat",
+      "600",
+      "1.415.900",
+      "3 yıl (60.000 km) garanti",
+      [
+        "assets/images/fiat/fiat_6000.png",
+        "assets/images/fiat/fiat_6001.png",
+        "assets/images/fiat/fiat_6002.png",
+      ],
+    ),
     // ... diğer arabaların listesi buraya taşınacak ...
   ];
 } 
