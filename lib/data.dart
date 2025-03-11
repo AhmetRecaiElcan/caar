@@ -47,17 +47,17 @@ List<Dealer> getDealerList(){
     Dealer(
       "Fiat",
       174,
-      "assets/images/fiat.png",
+      "https://drive.google.com/uc?id=1eB9KTa8n_jXGbaIHy609bUda_5ZTn43S",
     ),
     Dealer(
       "Toyota",
       126,
-      "assets/images/toyota.jpg",
+      "https://drive.google.com/uc?id=1_EkAjdbfOOYMLWZW2fiWktDDRrLYrhBb",
     ),
     Dealer(
       "Ford",
       89,
-      "assets/images/ford.png",
+      "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
     ),
   ];
 }
