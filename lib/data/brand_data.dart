@@ -17,7 +17,7 @@ List<Brand> getBrandList() {
   return <Brand>[
     Brand(
       name: "Ford",
-      image: "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
+      image: "https://drive.google.com/uc?id=1kizs4vox1a2t43AHisVzf5NDBqoctpdM",
       productCount: 265,
       isVerified: false
     ),

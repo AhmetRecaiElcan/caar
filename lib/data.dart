@@ -57,7 +57,7 @@ List<Dealer> getDealerList(){
     Dealer(
       "Ford",
       89,
-      "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
+      "https://drive.google.com/uc?id=1kizs4vox1a2t43AHisVzf5NDBqoctpdM",
     ),
   ];
 }
