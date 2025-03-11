@@ -19,7 +19,8 @@ List<NavigationItem> getNavigationItemList(){
 }
 
 class Car {
-
+//https://drive.google.com/file/d/1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13/view?usp=drive_link
+//https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13
   String brand;
   String model;
   String price;

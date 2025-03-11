@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:caar/data.dart';
 
-Widget buildDealer(Dealer dealer, int index){
+Widget buildDealer(Dealer dealer, int index) {
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
@@ -15,25 +15,30 @@ Widget buildDealer(Dealer dealer, int index){
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-
         Container(
+          height: 60,
+          width: 60,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(dealer.image), 
-              fit: BoxFit.cover,
-            ),
             borderRadius: BorderRadius.all(
               Radius.circular(15),
             ),
           ),
-          height: 60,
-          width: 60,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.network(
+              dealer.image,
+              fit: BoxFit.cover,
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(child: CircularProgressIndicator());
+              },
+              errorBuilder: (context, error, stackTrace) {
+                return Center(child: Text('Resim yüklenemedi'));
+              },
+            ),
+          ),
         ),
-
-        SizedBox(
-          height: 16,
-        ),
-
+        SizedBox(height: 16),
         Text(
           dealer.name,
           style: TextStyle(
@@ -42,7 +47,6 @@ Widget buildDealer(Dealer dealer, int index){
             height: 1,
           ),
         ),
-
         Text(
           dealer.offers.toString() + " offers",
           style: TextStyle(
@@ -50,7 +54,6 @@ Widget buildDealer(Dealer dealer, int index){
             color: Colors.grey,
           ),
         ),
-
       ],
     ),
   );

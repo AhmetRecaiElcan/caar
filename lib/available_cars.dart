@@ -2,7 +2,7 @@ import 'package:caar/car_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
-import 'package:caar/cars/land_rover_details.dart';
+import 'package:caar/cars/land_rover_discovery.dart';
 import 'package:caar/data/car_data.dart';
 
 
@@ -90,7 +90,7 @@ class _AvailableCarsState extends State<AvailableCars> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => LandRoverDetails(car: item)),
+                          MaterialPageRoute(builder: (context) => LandRoverDiscoveryDetails(car: item)),
                         );
                       },
                       child: buildCar(item, 0)

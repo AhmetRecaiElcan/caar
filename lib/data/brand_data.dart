@@ -17,225 +17,223 @@ List<Brand> getBrandList() {
   return <Brand>[
     Brand(
       name: "Ford",
-      image: "assets/images/ford.png",
+      image: "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
       productCount: 265,
       isVerified: false
     ),
     Brand(
       name: "Toyota",
-      image: "assets/images/toyota.jpg",
+      image: "https://drive.google.com/uc?id=1_EkAjdbfOOYMLWZW2fiWktDDRrLYrhBb",
       productCount: 95,
       isVerified: false
     ),
     Brand(
       name: "Fiat",
-      image: "assets/images/fiat.png",
+      image: "https://drive.google.com/uc?id=1eB9KTa8n_jXGbaIHy609bUda_5ZTn43S",
       productCount: 85
     ),
     Brand(
       name: "Tesla",
-      image: "assets/images/tesla.jpg",
+      image: "https://drive.google.com/uc?id=1qiFsondPEnOctmi_Pub1ZVvRmIgIxH52",
       productCount: 36,
       isVerified: false
     ),
     Brand(
       name: "Chery",
-      image: "assets/images/chery.png",
+      image: "https://drive.google.com/uc?id=1W-l9OBnbJZf9tJvEU4W9BzO_SO3RLuko",
       productCount: 65
     ),
     Brand(
       name: "Audi",
-      image: "assets/images/audi.png",
+      image: "https://drive.google.com/uc?id=1ITdYBcfmsW01_CT2LXc6uzLDCgd5erQz",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Dacia",
-      image: "assets/images/dacia.jpg",
+      image: "https://drive.google.com/uc?id=1MIs3T1Jj6r7Yhs5WLOkXfk0ND14nTAjE",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Hyundai",
-      image: "assets/images/hyundai.png",
+      image: "https://drive.google.com/uc?id=1B9WB2JDuIIdcYfldVLw2owzw12QCL0t5",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Kia",
-      image: "assets/images/kia.png",
+      image: "https://drive.google.com/uc?id=1eSmx90Ziu_ZgJDU-Dzqs5klG4S1SZPq5",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Opel",
-      image: "assets/images/opel.png",
+      image: "https://drive.google.com/uc?id=11UsCq9OaVBpMKOJeaFl4Z9k2xwioQzRC",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Togg",
-      image: "assets/images/togg.png",
+      image: "https://drive.google.com/uc?id=11UsCq9OaVBpMKOJeaFl4Z9k2xwioQzRC",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Toyota",
-      image: "assets/images/toyota.jpg",
+      image: "https://drive.google.com/uc?id=1_EkAjdbfOOYMLWZW2fiWktDDRrLYrhBb",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Volkswagen",
-      image: "assets/images/volkswagen.png",
+      image: "https://drive.google.com/uc?id=1ZdCXrZU4INPImW3xj5zMEC41EpRldE9P",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Renault",
-      image: "assets/images/renault.jpg",
+      image: "https://drive.google.com/uc?id=16XbbWfuJjiUYOkTFfMlmgb2nlfm7Qq-2",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Mercedes",
-      image: "assets/images/mercedes.png",
+      image: "https://drive.google.com/uc?id=1vsAtRBPagC7Xlw83N0xWy254Dz_klTrY",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Volvo",
-      image: "assets/images/volvo.png",
+      image: "https://drive.google.com/uc?id=1z0J74PZQtHn8q94bofhs9Ash5iZfJpAy",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Nissan",
-      image: "assets/images/nissan.jpg",
+      image: "https://drive.google.com/uc?id=1i5JzoI7CtQAnO4W7FXc1elOFgbcwd_t4",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Land Rover",
-      image: "assets/images/landrover.png",
+      image: "https://drive.google.com/uc?id=1KSboFkXTc84aPUAgEbc3iw72OT_w4yrz",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Byd",
-      image: "assets/images/byd.png",
+      image: "https://drive.google.com/uc?id=1v6GiF09x7_G1LRX7X61wTNxHvdYNikDS",
       productCount: 6,
       isVerified: false
     ),
     Brand(
       name: "Honda",
-      image: "assets/images/honda.png",
+      image: "https://drive.google.com/uc?id=17xuTpufli8SRSRfr7UC2nJ4BpZsic3Cw",
       productCount: 7,
       isVerified: false
     ),
     Brand(
       name: "Bmw",
-      image: "assets/images/bmw.png",
+      image: "https://drive.google.com/uc?id=1VYKrfElkeWbWOEbhvxOoxL1OMlKaqbRS",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Alfa Romeo",
-      image: "assets/images/alfaromeo.png",
+      image: "https://drive.google.com/uc?id=1Mg-IlTN5G_wwxF5t-PWHpHEUwc64D05L",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Cupra",
-      image: "assets/images/cupra.png",
+      image: "https://drive.google.com/uc?id=1_PCT_OopmdF-8Ujjca4F3emm-N6seY4D",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Citroen",
-      image: "assets/images/citroen.png",
+      image: "https://drive.google.com/uc?id=1nPKLbD44YsCGWg6tkSUWPm1teIWeJFg6",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Dfsk",
-      image: "assets/images/dfsk.png",
+      image: "https://drive.google.com/uc?id=1Tvz27GvPQNxmlhW1VThla_BHAUMV4Nc9",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Ds",
-      image: "assets/images/ds.png",
+      image: "https://drive.google.com/uc?id=1KW75sXJLBFQi5VF1W9fRTOR3S-KGV85F",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Jaecco",
-      image: "assets/images/jaecco.png",
+      image: "https://drive.google.com/uc?id=1U199GWxgTJqjADqXQ4bm3L6SkyUOk4hS",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Jeep",
-      image: "assets/images/jeep.jpg",
+      image: "https://drive.google.com/uc?id=1x-IxkJ3NJCe0cfdvmQslknFMTuDmfFBX",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Lexus",
-      image: "assets/images/lexus.png",
+      image: "https://drive.google.com/uc?id=1t4N2V5HruoSvR71b3MJHRvtiKeqQoWzY",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Mg",
-      image: "assets/images/mg.png",
+      image: "https://drive.google.com/uc?id=1uTbKMTsfqZzfMui_SKx3rMGMX8KAMEMY",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Mini",
-      image: "assets/images/mini.png",
+      image: "https://drive.google.com/uc?id=1pr_EL0WA-NiwDvY_iBR84CcFPOrFazvK",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Mitsubishi",
-      image: "assets/images/mitsubishi.png",
+      image: "https://drive.google.com/uc?id=1phSiUMKOud4TXhWajs4H4cSQbwfzlq-4",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Peugeot",
-      image: "assets/images/peugeot.png",
+      image: "https://drive.google.com/uc?id=1daRt1C2NtptpLUUggmiaHmGFNRruRY-3",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Skoda",
-      image: "assets/images/skoda.png",
+      image: "https://drive.google.com/uc?id=1xxmsMJjKXbLnrJH_dsXwutgFdCmrdLok",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Ssangyong",
-      image: "assets/images/ssangyong.png",
+      image: "https://drive.google.com/uc?id=1rvq-6LLt3hFgbpEOT3J_x_afwdX93oH8",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Subaru",
-      image: "assets/images/subaru.jpg",
+      image: "https://drive.google.com/uc?id=1ktFLsZIB81Wmeiilq-FjCjxglRTSQz4u",
       productCount: 88,
       isVerified: false
     ),
     Brand(
       name: "Suzuki",
-      image: "assets/images/suzuki.png",
+      image: "https://drive.google.com/uc?id=17eGn1uA8mXhQ5GqiW-7Y4bqXNno9obuK",
       productCount: 88,
       isVerified: false
     ),
-
-    // Diğer markalar buraya eklenebilir...
   ];
-} 
+}

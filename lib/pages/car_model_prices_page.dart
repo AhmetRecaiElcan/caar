@@ -103,7 +103,7 @@ class CarModelPricesPage extends StatelessWidget {
                                 borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(15),
                                 ),
-                                child: Image.asset(
+                                child: Image.network(
                                   car.images[0],
                                   fit: BoxFit.cover,
                                   width: double.infinity,

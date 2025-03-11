@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:caar/car_widget.dart';
 import 'package:caar/dealer_widget.dart';
 import 'package:caar/available_cars.dart';
-import 'package:caar/cars/land_rover_details.dart';
+import 'package:caar/cars/land_rover_discovery.dart';
 import 'package:caar/data/car_data.dart';
 import 'main.dart';
 
@@ -325,7 +325,7 @@ class _ShowroomState extends State<Showroom> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LandRoverDetails(car: cars[i])),
+              MaterialPageRoute(builder: (context) => LandRoverDiscoveryDetails(car: cars[i])),
             );
           },
           child: buildCar(cars[i], i)

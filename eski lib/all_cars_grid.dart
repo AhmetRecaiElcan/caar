@@ -95,7 +95,7 @@ class _AllCarsGridState extends State<AllCarsGrid> {
                                   Container(
                                     height: 36,
                                     width: 36,
-                                    child: Image.asset(
+                                    child: Image.network(
                                       brands[index].image,
                                       fit: BoxFit.contain,
                                     ),

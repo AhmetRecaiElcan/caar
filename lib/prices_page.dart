@@ -87,7 +87,7 @@ class _PricesPageState extends State<PricesPage> {
                             color: Colors.grey[100],
                             shape: BoxShape.circle,
                           ),
-                          child: Image.asset(
+                          child: Image.network(
                             brands[index].image,
                             fit: BoxFit.contain,
                           ),

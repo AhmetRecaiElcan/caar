@@ -9,9 +9,9 @@ List<Car> getCarList(){
       "4350",
       "Weekly",
       [
-        "assets/images/land_rover_0.png",
-        "assets/images/land_rover_1.png",
-        "assets/images/land_rover_2.png",
+        "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
+        "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
+        "https://drive.google.com/uc?id=1IGiDqyrsjVBMQbatwcF5UeCgGxUQRH13",
       ],
     ),
     Car(

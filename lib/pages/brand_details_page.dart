@@ -60,7 +60,10 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
       case "tesla":
         return TeslaDetails(car: car);
       case "land rover":
+      if (car.model == "Discovery") {
         return LandRoverDiscoveryDetails(car: car);
+      }
+      return LandRoverDiscoveryDetails(car: car);
       case "honda":
         if (car.model == "City") {
           return HondaCityDetails(car: car);
@@ -139,7 +142,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         ),
         title: Row(
           children: [
-            Image.asset(
+            Image.network(
               widget.brandImage,
               height: 30,
               width: 30,
@@ -214,7 +217,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                 Container(
                   width: 120,
                   height: 80,
-                  child: Image.asset(
+                  child: Image.network(
                     brandCars[index].images[0],
                     fit: BoxFit.contain,
                   ),
@@ -290,7 +293,7 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                   child: Container(
                     padding: EdgeInsets.all(16),
                     child: Center(
-                      child: Image.asset(
+                      child: Image.network(
                         brandCars[index].images[0],
                         fit: BoxFit.contain,
                       ),

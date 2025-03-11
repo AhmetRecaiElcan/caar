@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:caar/data.dart';
 import 'package:caar/constants.dart';
 
-Widget buildCar(Car car, int index){
+Widget buildCar(Car car, int index) {
   return Container(
     decoration: BoxDecoration(
       color: Colors.white,
@@ -16,7 +16,6 @@ Widget buildCar(Car car, int index){
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-
         Align(
           alignment: Alignment.centerRight,
           child: Container(
@@ -39,39 +38,32 @@ Widget buildCar(Car car, int index){
             ),
           ),
         ),
-
-        SizedBox(
-          height: 8,
-        ),
-
+        SizedBox(height: 8),
         Container(
           height: 120,
           child: Center(
             child: Hero(
               tag: car.model,
-              child: Image.asset(
+              child: Image.network(
                 car.images[0],
                 fit: BoxFit.fitWidth,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return CircularProgressIndicator();
+                },
+                errorBuilder: (context, error, stackTrace) {
+                  return Text('Resim yüklenemedi');
+                },
               ),
             ),
           ),
         ),
-
-        SizedBox(
-          height: 24,
-        ),
-
+        SizedBox(height: 24),
         Text(
           car.model,
-          style: TextStyle(
-            fontSize: 18
-          ),
+          style: TextStyle(fontSize: 18),
         ),
-
-        SizedBox(
-          height: 8,
-        ),
-
+        SizedBox(height: 8),
         Text(
           car.brand,
           style: TextStyle(
@@ -80,15 +72,18 @@ Widget buildCar(Car car, int index){
             height: 1,
           ),
         ),
-
         Text(
-          "per " + (car.condition == "Daily" ? "day" : car.condition == "Weekly" ? "week" : "month"),
+          "per " +
+              (car.condition == "Daily"
+                  ? "day"
+                  : car.condition == "Weekly"
+                      ? "week"
+                      : "month"),
           style: TextStyle(
             fontSize: 14,
             color: Colors.grey,
           ),
         ),
-
       ],
     ),
   );
