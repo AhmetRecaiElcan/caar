@@ -4,6 +4,7 @@ import 'package:caar/data.dart';
 import '../webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 class HondaTyperDetails extends StatefulWidget {
@@ -164,10 +165,12 @@ class _HondaTyperDetailsState extends State<HondaTyperDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.network(
-                                    path,
-                                    fit: BoxFit.scaleDown,
-                                  ),
+                                  child: CachedNetworkImage(
+  imageUrl: path,
+  fit: BoxFit.scaleDown,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
                                 ),
                               );
                             }).toList(),

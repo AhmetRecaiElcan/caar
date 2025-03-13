@@ -4,6 +4,8 @@ import 'package:caar/data/car_urls.dart';
 import 'package:caar/cars/webview_screen.dart';
 import 'package:caar/main.dart';
 import 'package:caar/pages/car_model_prices_page.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 
 class PricesPage extends StatefulWidget {
   @override
@@ -84,12 +86,14 @@ class _PricesPageState extends State<PricesPage> {
                           width: 60,
                           padding: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            color: Colors.grey[100],
-                            shape: BoxShape.circle,
+                          color: Colors.grey[100],
+                          shape: BoxShape.circle,
                           ),
-                          child: Image.network(
-                            brands[index].image,
-                            fit: BoxFit.contain,
+                          child: CachedNetworkImage(
+                          imageUrl: brands[index].image,
+                          fit: BoxFit.contain,
+                          placeholder: (context, url) => CircularProgressIndicator(),
+                          errorWidget: (context, url, error) => Icon(Icons.error),
                           ),
                         ),
                         SizedBox(height: 15),

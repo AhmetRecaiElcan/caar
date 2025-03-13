@@ -3,6 +3,7 @@ import 'package:caar/cars/webview_screen.dart';
 import 'package:caar/data/car_urls.dart';
 import 'package:caar/data/car_data.dart';
 import 'package:caar/data.dart';
+import 'package:cached_network_image/cached_network_image.dart'; // Add this import
 
 class CarModelPricesPage extends StatelessWidget {
   final String brandName;
@@ -103,10 +104,14 @@ class CarModelPricesPage extends StatelessWidget {
                                 borderRadius: BorderRadius.vertical(
                                   top: Radius.circular(15),
                                 ),
-                                child: Image.network(
-                                  car.images[0],
+                                child: CachedNetworkImage(
+                                  imageUrl: car.images[0],
                                   fit: BoxFit.cover,
                                   width: double.infinity,
+                                  placeholder: (context, url) => Center(
+                                    child: CircularProgressIndicator(),
+                                  ),
+                                  errorWidget: (context, url, error) => Icon(Icons.error),
                                 ),
                               ),
                             ),

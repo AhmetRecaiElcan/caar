@@ -23,7 +23,7 @@ import 'package:caar/cars/fiat/fiat_egeacross.dart';
 import 'package:caar/cars/fiat/fiat_egeasedan.dart';
 import 'package:caar/cars/fiat/fiat_topolino.dart';
 import 'package:caar/cars/fiat/fiat_600.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BrandDetailsPage extends StatefulWidget {
   final String brandName;
@@ -142,10 +142,16 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
         ),
         title: Row(
           children: [
-            Image.network(
-              widget.brandImage,
+            CachedNetworkImage(
+              imageUrl: widget.brandImage,
               height: 30,
               width: 30,
+              placeholder: (context, url) => Container(
+                height: 30,
+                width: 30,
+                child: Center(child: CircularProgressIndicator(strokeWidth: 2.0)),
+              ),
+              errorWidget: (context, url, error) => Icon(Icons.error),
             ),
             SizedBox(width: 10),
             Text(
@@ -217,9 +223,11 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                 Container(
                   width: 120,
                   height: 80,
-                  child: Image.network(
-                    brandCars[index].images[0],
+                  child: CachedNetworkImage(
+                    imageUrl: brandCars[index].images[0],
                     fit: BoxFit.contain,
+                    placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => Icon(Icons.error),
                   ),
                 ),
                 SizedBox(width: 16),
@@ -293,9 +301,11 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
                   child: Container(
                     padding: EdgeInsets.all(16),
                     child: Center(
-                      child: Image.network(
-                        brandCars[index].images[0],
+                      child: CachedNetworkImage(
+                        imageUrl: brandCars[index].images[0],
                         fit: BoxFit.contain,
+                        placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
                     ),
                   ),
@@ -338,4 +348,4 @@ class _BrandDetailsPageState extends State<BrandDetailsPage> {
       },
     );
   }
-} 
+}

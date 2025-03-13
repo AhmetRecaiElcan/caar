@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:caar/data.dart';
 import 'package:caar/constants.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 Widget buildCar(Car car, int index) {
   return Container(
@@ -44,16 +45,11 @@ Widget buildCar(Car car, int index) {
           child: Center(
             child: Hero(
               tag: car.model,
-              child: Image.network(
-                car.images[0],
+              child: CachedNetworkImage(
+                imageUrl: car.images[0],
                 fit: BoxFit.fitWidth,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress == null) return child;
-                  return CircularProgressIndicator();
-                },
-                errorBuilder: (context, error, stackTrace) {
-                  return Text('Resim yüklenemedi');
-                },
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Text('Resim yüklenemedi'),
               ),
             ),
           ),

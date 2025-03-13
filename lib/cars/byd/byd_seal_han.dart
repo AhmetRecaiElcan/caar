@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'package:caar/cars/webview_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 class BydSealHanDetails extends StatefulWidget {
   final Car car;
   const BydSealHanDetails({required this.car});
@@ -160,10 +162,12 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.network(
-                                    path,
-                                    fit: BoxFit.scaleDown,
-                                  ),
+                                  child: CachedNetworkImage(
+  imageUrl: path,
+  fit: BoxFit.scaleDown,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
                                 ),
                               );
                             }).toList(),

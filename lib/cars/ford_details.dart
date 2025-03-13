@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'webview_screen.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class FordDetails extends StatefulWidget {
   final Car car;
@@ -161,10 +162,12 @@ class _FordDetailsState extends State<FordDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.network(
-                                    path,
-                                    fit: BoxFit.scaleDown,
-                                  ),
+                                  child: CachedNetworkImage(
+  imageUrl: path,
+  fit: BoxFit.scaleDown,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
                                 ),
                               );
                             }).toList(),

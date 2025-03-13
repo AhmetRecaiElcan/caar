@@ -4,6 +4,7 @@ import 'package:caar/data.dart';
 import '../webview_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:caar/cars/fiat/car_version_egea_cross.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 class FiatEgeaCrossDetails extends StatefulWidget {
@@ -187,10 +188,12 @@ class _FiatEgeaCrossDetailsState extends State<FiatEgeaCrossDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.network(
-                                    path,
-                                    fit: BoxFit.scaleDown,
-                                  ),
+                                  child: CachedNetworkImage(
+  imageUrl: path,
+  fit: BoxFit.scaleDown,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
                                 ),
                               );
                             }).toList(),

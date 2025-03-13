@@ -3,6 +3,7 @@ import 'package:caar/constants.dart';
 import 'package:caar/data.dart';
 import 'package:caar/cars/webview_screen.dart';
 import 'package:caar/data/glb_wiever.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class BydAtto3Details extends StatefulWidget {
   final Car car;
@@ -165,10 +166,12 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Hero(
               tag: widget.car.model,
-              child: Image.network(
-                path,
-                fit: BoxFit.scaleDown,
-              ),
+              child: CachedNetworkImage(
+  imageUrl: path,
+  fit: BoxFit.scaleDown,
+  placeholder: (context, url) => CircularProgressIndicator(),
+  errorWidget: (context, url, error) => Icon(Icons.error),
+),
             ),
           );
         }

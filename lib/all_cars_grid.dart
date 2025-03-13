@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:caar/data/brand_data.dart';
 import 'package:caar/pages/brand_details_page.dart';
 import 'package:caar/main.dart'; 
-import 'package:caar/data/car_data.dart'; // MainNavigation için import ekleyelim
+import 'package:caar/data/car_data.dart';
+import 'package:cached_network_image/cached_network_image.dart'; // Add this import
 
 class AllCarsGrid extends StatefulWidget {
   @override
@@ -117,9 +118,15 @@ class _AllCarsGridState extends State<AllCarsGrid> {
                               color: Colors.grey[100],
                               shape: BoxShape.circle,
                             ),
-                            child: Image.network(
-                              brands[index].image,
+                            child: CachedNetworkImage(
+                              imageUrl: brands[index].image,
                               fit: BoxFit.contain,
+                              placeholder: (context, url) => Center(
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                ),
+                              ),
+                              errorWidget: (context, url, error) => Icon(Icons.error),
                             ),
                           ),
                           SizedBox(height: 15),

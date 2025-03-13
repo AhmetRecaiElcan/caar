@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:caar/data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 Widget buildDealer(Dealer dealer, int index) {
   return Container(
@@ -25,16 +26,11 @@ Widget buildDealer(Dealer dealer, int index) {
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: Image.network(
-              dealer.image,
+            child: CachedNetworkImage(
+              imageUrl: dealer.image,
               fit: BoxFit.cover,
-              loadingBuilder: (context, child, loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(child: CircularProgressIndicator());
-              },
-              errorBuilder: (context, error, stackTrace) {
-                return Center(child: Text('Resim yüklenemedi'));
-              },
+              placeholder: (context, url) => Center(child: CircularProgressIndicator()),
+              errorWidget: (context, url, error) => Center(child: Text('Resim yüklenemedi')),
             ),
           ),
         ),
