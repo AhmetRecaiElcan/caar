@@ -61,7 +61,7 @@ class CarVersionsScreen extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
+                      child: Image.network(
                         carVersions[index]['image'],
                         height: 150,
                         width: double.infinity,

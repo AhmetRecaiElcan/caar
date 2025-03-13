@@ -160,7 +160,7 @@ class _BydSealHanDetailsState extends State<BydSealHanDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.asset(
+                                  child: Image.network(
                                     path,
                                     fit: BoxFit.scaleDown,
                                   ),

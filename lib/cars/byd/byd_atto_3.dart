@@ -165,7 +165,7 @@ class _BydAtto3DetailsState extends State<BydAtto3Details> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Hero(
               tag: widget.car.model,
-              child: Image.asset(
+              child: Image.network(
                 path,
                 fit: BoxFit.scaleDown,
               ),

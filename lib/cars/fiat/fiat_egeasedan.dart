@@ -190,7 +190,7 @@ class _FiatEgeaSedanDetailsState extends State<FiatEgeaSedanDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.asset(
+                                  child: Image.network(
                                     path,
                                     fit: BoxFit.scaleDown,
                                   ),

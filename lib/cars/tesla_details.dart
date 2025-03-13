@@ -160,7 +160,7 @@ class _TeslaDetailsState extends State<TeslaDetails> {
                                 padding: EdgeInsets.symmetric(horizontal: 16),
                                 child: Hero(
                                   tag: widget.car.model,
-                                  child: Image.asset(
+                                  child: Image.network(
                                     path,
                                     fit: BoxFit.scaleDown,
                                   ),
